@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Institutional Partners Track · IGVP Institute</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            background: 'var(--background)',
+            foreground: 'var(--foreground)',
+            surface: 'var(--surface)',
+            card: 'var(--card)',
+            primary: { DEFAULT: 'var(--primary)', hover: 'var(--primary-hover)' },
+            border: 'var(--border)',
+            success: 'var(--success)'
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="assets/igvp-landing.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="min-h-screen bg-background text-foreground font-sans antialiased">
+  <div class="fixed top-4 inset-x-0 z-50 flex justify-center px-4">
+    <header class="flex h-[68px] w-full max-w-6xl items-center justify-between rounded-full border border-border/50 bg-background/80 backdrop-blur-xl px-6 shadow-lg">
+      <a href="index.html" class="flex items-center gap-3 font-bold text-xl">
+        <span class="bg-primary text-white text-xs font-black px-2 py-0.5 rounded">IGVP</span>
+        <span>INSTITUTE</span>
+      </a>
+      <div class="flex items-center gap-3">
+        <button onclick="toggleTheme()" class="p-2 rounded-full border border-border hover:bg-surface"><i data-lucide="sun" class="h-4 w-4 hidden dark:block"></i><i data-lucide="moon" class="h-4 w-4 block dark:hidden"></i></button>
+        <a href="index.html" class="h-10 px-6 rounded-full bg-primary hover:bg-primary-hover text-white flex items-center justify-center text-sm font-bold">Back to Main OS</a>
+      </div>
+    </header>
+  </div>
+
+  <section class="pt-36 pb-20 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <span class="bg-primary/10 text-primary border border-primary/20 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Partners (Hospitals, Labs & Research Centers)</span>
+      <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mt-6 mb-6">
+        Turn Your Lab's Pipeline Into a <span class="text-primary">Cross-Border Deal Engine.</span>
+      </h1>
+      <p class="text-lg sm:text-xl text-foreground/70 leading-relaxed mb-8">
+        Partner with IGVP for vetted clinical trial matching, tech transfer pathways, and co-development access to a live pipeline of US-Global biotech and medtech ventures.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="#partner" class="h-14 px-8 bg-primary hover:bg-primary-hover text-white font-bold rounded-xl flex items-center justify-center shadow-lg">Become an Institutional Partner</a>
+        <a href="#deck" class="h-14 px-8 border border-border hover:bg-surface font-bold rounded-xl flex items-center justify-center">Request Partnership Deck</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-surface border-y border-border">
+    <div class="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-8">
+      <div class="bg-card border border-border rounded-2xl p-6">
+        <h3 class="text-xl font-bold text-destructive mb-3">Pain Point</h3>
+        <p class="text-foreground/80 leading-relaxed">Your institution has trial capacity, research infrastructure, or licensable IP sitting underutilized — but no structured channel to reach credible, investment-ready ventures.</p>
+      </div>
+      <div class="bg-card border border-border rounded-2xl p-6">
+        <h3 class="text-xl font-bold text-success mb-3">The Fix</h3>
+        <p class="text-foreground/80 leading-relaxed">IGVP channels vetted Accelerator ventures directly into your institution's pipeline, structured as trial sites, tech transfer partners, or co-development collaborators.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 px-4">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl font-extrabold text-center mb-12">Institutional Partner Benefits</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-card border border-border rounded-2xl p-6 flex gap-4">
+          <div class="h-10 w-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0"><i data-lucide="building-2" class="h-5 w-5"></i></div>
+          <div><h4 class="font-bold mb-1">Clinical Trial Site Matching</h4><p class="text-xs text-foreground/70">Clinical trial site matching with pre-screened, funded ventures seeking trial capacity.</p></div>
+        </div>
+        <div class="bg-card border border-border rounded-2xl p-6 flex gap-4">
+          <div class="h-10 w-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0"><i data-lucide="file-check" class="h-5 w-5"></i></div>
+          <div><h4 class="font-bold mb-1">Tech Transfer & IP Desk</h4><p class="text-xs text-foreground/70">Tech transfer introductions to Accelerator portfolio companies actively seeking licensable IP.</p></div>
+        </div>
+        <div class="bg-card border border-border rounded-2xl p-6 flex gap-4">
+          <div class="h-10 w-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0"><i data-lucide="shield-check" class="h-5 w-5"></i></div>
+          <div><h4 class="font-bold mb-1">Regulatory Channel Access</h4><p class="text-xs text-foreground/70">Priority placement in #clinical-trials-india and #regulatory-fda for direct founder access.</p></div>
+        </div>
+        <div class="bg-card border border-border rounded-2xl p-6 flex gap-4">
+          <div class="h-10 w-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0"><i data-lucide="activity" class="h-5 w-5"></i></div>
+          <div><h4 class="font-bold mb-1">Co-Development Sourcing</h4><p class="text-xs text-foreground/70">Co-development deal sourcing through Accelerator application review ahead of public visibility.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-8 bg-surface border-t border-border text-center text-xs text-foreground/60">
+    © 2026 IGVP Institute. All rights reserved. <a href="index.html" class="text-primary hover:underline ml-2">Main Landing Page</a>
+  </footer>
+  <script src="assets/igvp-landing.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Service Providers Track · IGVP Institute</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            background: 'var(--background)',
+            foreground: 'var(--foreground)',
+            surface: 'var(--surface)',
+            card: 'var(--card)',
+            primary: { DEFAULT: 'var(--primary)', hover: 'var(--primary-hover)' },
+            border: 'var(--border)',
+            success: 'var(--success)'
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="assets/igvp-landing.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="min-h-screen bg-background text-foreground font-sans antialiased">
+  <div class="fixed top-4 inset-x-0 z-50 flex justify-center px-4">
+    <header class="flex h-[68px] w-full max-w-6xl items-center justify-between rounded-full border border-border/50 bg-background/80 backdrop-blur-xl px-6 shadow-lg">
+      <a href="index.html" class="flex items-center gap-3 font-bold text-xl">
+        <span class="bg-primary text-white text-xs font-black px-2 py-0.5 rounded">IGVP</span>
+        <span>INSTITUTE</span>
+      </a>
+      <div class="flex items-center gap-3">
+        <button onclick="toggleTheme()" class="p-2 rounded-full border border-border hover:bg-surface"><i data-lucide="sun" class="h-4 w-4 hidden dark:block"></i><i data-lucide="moon" class="h-4 w-4 block dark:hidden"></i></button>
+        <a href="index.html" class="h-10 px-6 rounded-full bg-primary hover:bg-primary-hover text-white flex items-center justify-center text-sm font-bold">Back to Main OS</a>
+      </div>
+    </header>
+  </div>
+
+  <section class="pt-36 pb-20 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <span class="bg-primary/10 text-primary border border-primary/20 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Service Providers (CDMOs, Legal, Regulatory, Manufacturing)</span>
+      <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mt-6 mb-6">
+        Get in Front of Every Founder <span class="text-primary">Before They Pick a Vendor.</span>
+      </h1>
+      <p class="text-lg sm:text-xl text-foreground/70 leading-relaxed mb-8">
+        Join the IGVP vetted vendor network and become the go-to CDMO, legal, regulatory, or manufacturing partner for a pipeline of cross-border bio founders.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="#join" class="h-14 px-8 bg-primary hover:bg-primary-hover text-white font-bold rounded-xl flex items-center justify-center shadow-lg">Apply to Vendor Directory</a>
+        <a href="#directory" class="h-14 px-8 border border-border hover:bg-surface font-bold rounded-xl flex items-center justify-center">See Vendor Directory</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-surface border-y border-border">
+    <div class="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-8">
+      <div class="bg-card border border-border rounded-2xl p-6">
+        <h3 class="text-xl font-bold text-destructive mb-3">Pain Point</h3>
+        <p class="text-foreground/80 leading-relaxed">You have the regulatory, manufacturing, or legal expertise founders desperately need, but sales cycles into biotech/medtech startups are slow and hard to break into.</p>
+      </div>
+      <div class="bg-card border border-border rounded-2xl p-6">
+        <h3 class="text-xl font-bold text-success mb-3">The Fix</h3>
+        <p class="text-foreground/80 leading-relaxed">IGVP curates a vetted vendor directory surfaced directly inside founder workflows — Delaware flip prep, FDA clearance, manufacturing scale-up — at the exact moment they need you.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 px-4">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl font-extrabold text-center mb-12">Service Provider Benefits</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-card border border-border rounded-2xl p-6 flex gap-4">
+          <div class="h-10 w-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0"><i data-lucide="layers" class="h-5 w-5"></i></div>
+          <div><h4 class="font-bold mb-1">IGVP Vendor Directory Listing</h4><p class="text-xs text-foreground/70">Surfaced during Delaware flip, FDA clearance, and cap table build phases.</p></div>
+        </div>
+        <div class="bg-card border border-border rounded-2xl p-6 flex gap-4">
+          <div class="h-10 w-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0"><i data-lucide="users" class="h-5 w-5"></i></div>
+          <div><h4 class="font-bold mb-1">Direct Founder Access</h4><p class="text-xs text-foreground/70">Direct access to Accelerator cohort founders during onboarding when vendor decisions get made.</p></div>
+        </div>
+        <div class="bg-card border border-border rounded-2xl p-6 flex gap-4">
+          <div class="h-10 w-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0"><i data-lucide="message-square" class="h-5 w-5"></i></div>
+          <div><h4 class="font-bold mb-1">Sponsored Visibility</h4><p class="text-xs text-foreground/70">Sponsored visibility in #regulatory-fda and #clinical-trials-india on Discord.</p></div>
+        </div>
+        <div class="bg-card border border-border rounded-2xl p-6 flex gap-4">
+          <div class="h-10 w-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0"><i data-lucide="zap" class="h-5 w-5"></i></div>
+          <div><h4 class="font-bold mb-1">Warm Sprint Introductions</h4><p class="text-xs text-foreground/70">Warm introductions during 72-Hour Sprint follow-ups when teams urgently need legal/CDMO support.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-8 bg-surface border-t border-border text-center text-xs text-foreground/60">
+    © 2026 IGVP Institute. All rights reserved. <a href="index.html" class="text-primary hover:underline ml-2">Main Landing Page</a>
+  </footer>
+  <script src="assets/igvp-landing.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

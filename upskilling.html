@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Upskilling Professionals Track · IGVP Institute</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            background: 'var(--background)',
+            foreground: 'var(--foreground)',
+            surface: 'var(--surface)',
+            card: 'var(--card)',
+            primary: { DEFAULT: 'var(--primary)', hover: 'var(--primary-hover)' },
+            border: 'var(--border)',
+            success: 'var(--success)'
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="assets/igvp-landing.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="min-h-screen bg-background text-foreground font-sans antialiased">
+  <div class="fixed top-4 inset-x-0 z-50 flex justify-center px-4">
+    <header class="flex h-[68px] w-full max-w-6xl items-center justify-between rounded-full border border-border/50 bg-background/80 backdrop-blur-xl px-6 shadow-lg">
+      <a href="index.html" class="flex items-center gap-3 font-bold text-xl">
+        <span class="bg-primary text-white text-xs font-black px-2 py-0.5 rounded">IGVP</span>
+        <span>INSTITUTE</span>
+      </a>
+      <div class="flex items-center gap-3">
+        <button onclick="toggleTheme()" class="p-2 rounded-full border border-border hover:bg-surface"><i data-lucide="sun" class="h-4 w-4 hidden dark:block"></i><i data-lucide="moon" class="h-4 w-4 block dark:hidden"></i></button>
+        <a href="index.html" class="h-10 px-6 rounded-full bg-primary hover:bg-primary-hover text-white flex items-center justify-center text-sm font-bold">Back to Main OS</a>
+      </div>
+    </header>
+  </div>
+
+  <section class="pt-36 pb-20 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <span class="bg-primary/10 text-primary border border-primary/20 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Upskilling Professionals (Clinicians & Executives)</span>
+      <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mt-6 mb-6">
+        Keep Your Practice or Job. <span class="text-primary">Learn to Build Ventures on the Side.</span>
+      </h1>
+      <p class="text-lg sm:text-xl text-foreground/70 leading-relaxed mb-8">
+        A part-time, cohort-based path for clinicians and executives to master venture and business skills without stepping away from patients or payroll.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="#apply" class="h-14 px-8 bg-primary hover:bg-primary-hover text-white font-bold rounded-xl flex items-center justify-center shadow-lg">Apply to Executive Cohort</a>
+        <a href="#curriculum" class="h-14 px-8 border border-border hover:bg-surface font-bold rounded-xl flex items-center justify-center">Download Curriculum</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-surface border-y border-border">
+    <div class="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-8">
+      <div class="bg-card border border-border rounded-2xl p-6">
+        <h3 class="text-xl font-bold text-destructive mb-3">Pain Point</h3>
+        <p class="text-foreground/80 leading-relaxed">You want in on healthtech innovation and equity upside, but MBA programs demand years you don't have, and generic online courses never touch real deal mechanics.</p>
+      </div>
+      <div class="bg-card border border-border rounded-2xl p-6">
+        <h3 class="text-xl font-bold text-success mb-3">The Fix</h3>
+        <p class="text-foreground/80 leading-relaxed">IGVP's Institute delivers compressed, practitioner-built cohorts that fit around clinical or executive schedules and plug you directly into live accelerator deal flow.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 px-4">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl font-extrabold text-center mb-12">What You Get as a Professional</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-card border border-border rounded-2xl p-6 flex gap-4">
+          <div class="h-10 w-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0"><i data-lucide="book-open" class="h-5 w-5"></i></div>
+          <div><h4 class="font-bold mb-1">Bio-Entrepreneurship Masterclass</h4><p class="text-xs text-foreground/70">$2k-$5k Bio-Entrepreneurship & Upskilling Masterclasses in an evening/weekend format.</p></div>
+        </div>
+        <div class="bg-card border border-border rounded-2xl p-6 flex gap-4">
+          <div class="h-10 w-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0"><i data-lucide="award" class="h-5 w-5"></i></div>
+          <div><h4 class="font-bold mb-1">Bio-Venture Fellowship Credential</h4><p class="text-xs text-foreground/70">IGVP Bio-Venture Fellowship Certificate on completion — credentialed cross-border training.</p></div>
+        </div>
+        <div class="bg-card border border-border rounded-2xl p-6 flex gap-4">
+          <div class="h-10 w-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0"><i data-lucide="shield" class="h-5 w-5"></i></div>
+          <div><h4 class="font-bold mb-1">Angel-in-Training Syndicate</h4><p class="text-xs text-foreground/70">Placement on real Accelerator due-diligence teams to gain advisory and equity exposure.</p></div>
+        </div>
+        <div class="bg-card border border-border rounded-2xl p-6 flex gap-4">
+          <div class="h-10 w-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0"><i data-lucide="message-square" class="h-5 w-5"></i></div>
+          <div><h4 class="font-bold mb-1">Peer & Expert Discord Channels</h4><p class="text-xs text-foreground/70">Access to #regulatory-fda and #clinical-trials-india channels for ongoing peer learning.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-8 bg-surface border-t border-border text-center text-xs text-foreground/60">
+    © 2026 IGVP Institute. All rights reserved. <a href="index.html" class="text-primary hover:underline ml-2">Main Landing Page</a>
+  </footer>
+  <script src="assets/igvp-landing.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

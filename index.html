@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IGVP · Healthcare Venture Operating System</title>
+  <meta name="description" content="IGVP unifies STEM education, healthcare startup incubation, and venture capital into a single enterprise platform." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            background: 'var(--background)',
+            foreground: 'var(--foreground)',
+            surface: 'var(--surface)',
+            'surface-2': 'var(--surface-2)',
+            card: 'var(--card)',
+            'card-foreground': 'var(--card-foreground)',
+            primary: {
+              DEFAULT: 'var(--primary)',
+              hover: 'var(--primary-hover)',
+              foreground: 'var(--primary-foreground)'
+            },
+            border: 'var(--border)',
+            muted: 'var(--muted)',
+            'muted-foreground': 'var(--muted-foreground)',
+            success: 'var(--success)',
+            warning: 'var(--warning)',
+            info: 'var(--info)',
+            'chart-4': 'var(--chart-4)'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Fraunces', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="assets/igvp-landing.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="min-h-screen bg-background text-foreground font-sans antialiased">
+
+  <!-- Floating Pill Header -->
+  <div class="fixed top-4 inset-x-0 z-50 flex justify-center px-4 pointer-events-none">
+    <header class="pointer-events-auto flex h-[68px] w-full max-w-6xl items-center justify-between rounded-full border border-border/50 bg-background/80 backdrop-blur-xl px-6 shadow-[0_8px_30px_rgb(0,0,0,0.08)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.4)] transition-all duration-300">
+      <div class="flex items-center gap-8">
+        <a href="index.html" class="flex items-center gap-3 font-bold text-xl text-foreground">
+          <img src="assets/igvp-logo.png" alt="IGVP Logo" class="h-9 w-auto" onerror="this.style.display='none'" />
+          <div class="flex items-center gap-2">
+            <span class="bg-primary text-white text-xs font-black px-2 py-0.5 rounded tracking-wider">IGVP</span>
+            <span class="font-extrabold tracking-tight hidden sm:inline">INSTITUTE</span>
+          </div>
+        </a>
+        <nav class="hidden md:flex items-center gap-7">
+          <a href="#platform" class="text-[14px] font-semibold text-foreground/70 hover:text-foreground hover:scale-105 transition-all">Products</a>
+          <a href="#tracks" class="text-[14px] font-semibold text-foreground/70 hover:text-foreground hover:scale-105 transition-all">Solutions</a>
+          <a href="#programs" class="text-[14px] font-semibold text-foreground/70 hover:text-foreground hover:scale-105 transition-all">Learning</a>
+          <a href="#spotlight" class="text-[14px] font-semibold text-foreground/70 hover:text-foreground hover:scale-105 transition-all">Support</a>
+          <a href="#stories" class="text-[14px] font-semibold text-foreground/70 hover:text-foreground hover:scale-105 transition-all">Company</a>
+        </nav>
+      </div>
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button onclick="toggleTheme()" class="p-2 rounded-full border border-border hover:bg-surface text-foreground transition-all" title="Toggle Dark/Light Mode">
+          <i data-lucide="sun" class="h-4 w-4 hidden dark:block"></i>
+          <i data-lucide="moon" class="h-4 w-4 block dark:hidden"></i>
+        </button>
+        <div class="h-5 w-px bg-border hidden sm:block mx-1"></div>
+        <a href="students.html" class="hidden sm:flex h-10 items-center justify-center rounded-full px-4 text-[14px] font-bold text-foreground/80 hover:text-primary transition-all">Login</a>
+        <a href="founders.html" class="h-10 px-6 rounded-full bg-primary hover:bg-primary-hover text-white flex items-center justify-center text-[14px] font-bold shadow-md transition-all hover:shadow-lg hover:-translate-y-0.5">Try for free</a>
+      </div>
+    </header>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden pt-32 pb-24 md:pt-40 md:pb-32">
+    <!-- Background Grid & Glow -->
+    <div class="absolute inset-0 z-0 opacity-[0.15] dark:opacity-[0.25] pointer-events-none [mask-image:radial-gradient(ellipse_80%_70%_at_50%_0%,#000_70%,transparent_100%)]"
+      style="background-image: linear-gradient(to right, var(--primary) 1px, transparent 1px), linear-gradient(to bottom, var(--primary) 1px, transparent 1px); background-size: 48px 48px;">
+    </div>
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 h-[400px] w-[700px] rounded-full bg-primary/15 dark:bg-primary/20 blur-[100px] pointer-events-none z-0"></div>
+    <div class="absolute top-0 right-0 -mr-40 -mt-40 h-[600px] w-[600px] rounded-full bg-primary/10 blur-[100px] pointer-events-none z-0"></div>
+
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+        <!-- Hero Text -->
+        <div class="max-w-2xl">
+          <div class="mb-4">
+            <span class="text-xl font-display font-semibold italic text-foreground">From Lab to Ledger</span>
+          </div>
+          <h1 class="text-4xl sm:text-5xl lg:text-[64px] font-extrabold tracking-tight text-foreground leading-[1.1] mb-6">
+            The Healthcare Venture <span class="text-primary">Operating System.</span>
+          </h1>
+          <p class="text-lg sm:text-xl text-foreground/70 leading-relaxed mb-10 max-w-xl">
+            Power more connected, data-driven experiences by bringing together STEM education, clinical partnerships, and venture capital. Unify your entire institute on one platform.
+          </p>
+          <div class="flex flex-col sm:flex-row items-center gap-4">
+            <a href="founders.html" class="w-full sm:w-auto h-14 px-8 rounded-md bg-primary hover:bg-primary-hover text-white text-base font-bold flex items-center justify-center shadow-lg hover:-translate-y-0.5 transition-all">Watch demo</a>
+            <a href="students.html" class="w-full sm:w-auto h-14 px-8 rounded-md border-2 border-primary text-primary hover:bg-primary/5 text-base font-bold flex items-center justify-center transition-all hover:-translate-y-0.5">Try for free</a>
+          </div>
+        </div>
+
+        <!-- 3D Apple Window Console Mockup -->
+        <div class="relative mx-auto w-full max-w-xl lg:max-w-none">
+          <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-border/50 bg-background flex flex-col h-[480px]">
+            <!-- Header Bar -->
+            <div class="bg-surface border-b border-border flex items-center px-4 py-3 gap-3 shrink-0">
+              <div class="flex gap-1.5">
+                <div class="h-3 w-3 rounded-full bg-[#ff5f56]"></div>
+                <div class="h-3 w-3 rounded-full bg-[#ffbd2e]"></div>
+                <div class="h-3 w-3 rounded-full bg-[#27c93f]"></div>
+              </div>
+              <div class="bg-background border border-border rounded-md px-3 py-1 flex-1 text-xs text-center text-muted-foreground font-medium shadow-sm flex items-center justify-center gap-2">
+                <i data-lucide="lock" class="h-3 w-3"></i> console.igvp.health/programs
+              </div>
+            </div>
+
+            <!-- Body -->
+            <div class="flex flex-1 overflow-hidden">
+              <!-- Sidebar -->
+              <div class="w-1/4 min-w-[170px] border-r border-border bg-surface/50 p-4 flex flex-col gap-5 overflow-hidden">
+                <div class="flex items-center gap-2 px-2 whitespace-nowrap">
+                  <i data-lucide="graduation-cap" class="h-5 w-5 text-primary shrink-0"></i>
+                  <span class="font-bold text-sm text-foreground truncate">Education Cloud</span>
+                </div>
+                <div class="space-y-1">
+                  <div class="flex items-center justify-between px-2 py-1.5 bg-primary/10 rounded-md text-primary font-medium text-xs">
+                    <div class="flex items-center gap-2 overflow-hidden">
+                      <i data-lucide="activity" class="h-3.5 w-3.5 shrink-0"></i>
+                      <span class="truncate">Active Cohort</span>
+                    </div>
+                    <span class="bg-primary/20 px-1.5 py-0.5 rounded text-[9px] font-bold">42</span>
+                  </div>
+                  <div class="flex items-center gap-2 px-2 py-1.5 text-foreground/60 font-medium text-xs hover:bg-foreground/5 rounded-md transition-colors">
+                    <i data-lucide="briefcase" class="h-3.5 w-3.5 shrink-0"></i> Curriculum
+                  </div>
+                  <div class="flex items-center gap-2 px-2 py-1.5 text-foreground/60 font-medium text-xs hover:bg-foreground/5 rounded-md transition-colors">
+                    <i data-lucide="users" class="h-3.5 w-3.5 shrink-0"></i> Mentor Network
+                  </div>
+                  <div class="flex items-center gap-2 px-2 py-1.5 text-foreground/60 font-medium text-xs hover:bg-foreground/5 rounded-md transition-colors">
+                    <i data-lucide="sparkles" class="h-3.5 w-3.5 shrink-0"></i> Capstone AI
+                  </div>
+                </div>
+              </div>
+
+              <!-- Content Area -->
+              <div class="flex-1 p-5 bg-background flex flex-col gap-4">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <p class="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-1">Track B · Incubator</p>
+                    <h3 class="text-lg font-bold text-foreground">Fall 2026 Cohort</h3>
+                  </div>
+                  <div class="flex items-center gap-1.5 bg-success/10 px-2 py-1 rounded-md border border-success/20">
+                    <div class="h-1.5 w-1.5 rounded-full bg-success animate-pulse"></div>
+                    <span class="text-[10px] font-bold text-success uppercase tracking-wider">Week 4 / 16</span>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-3">
+                  <div class="bg-card border border-border rounded-lg p-3 shadow-sm">
+                    <p class="text-[9px] font-bold text-muted-foreground uppercase tracking-wider mb-1">Founders</p>
+                    <div class="flex items-end gap-2">
+                      <span class="text-lg font-bold text-foreground leading-none">42</span>
+                      <span class="text-[10px] font-bold text-success leading-none">+12%</span>
+                    </div>
+                  </div>
+                  <div class="bg-card border border-border rounded-lg p-3 shadow-sm">
+                    <p class="text-[9px] font-bold text-muted-foreground uppercase tracking-wider mb-1">Completion</p>
+                    <div class="flex items-end gap-2">
+                      <span class="text-lg font-bold text-foreground leading-none">84%</span>
+                      <span class="text-[10px] font-bold text-warning leading-none">On Track</span>
+                    </div>
+                  </div>
+                  <div class="bg-card border border-border rounded-lg p-3 shadow-sm">
+                    <p class="text-[9px] font-bold text-muted-foreground uppercase tracking-wider mb-1">Milestone</p>
+                    <span class="text-[11px] font-bold text-foreground leading-none">FDA Pathway</span>
+                  </div>
+                </div>
+
+                <div class="flex-1 border border-border rounded-lg bg-card shadow-sm p-4 flex flex-col justify-between">
+                  <div class="flex items-center justify-between mb-2">
+                    <p class="text-xs font-bold text-foreground">Curriculum Progress</p>
+                    <span class="text-[10px] text-primary font-bold cursor-pointer hover:underline">View Syllabus</span>
+                  </div>
+                  <div class="relative w-full flex items-center justify-between pt-4 pb-2">
+                    <div class="absolute w-full h-1 bg-border rounded-full top-1/2 -translate-y-1/2"></div>
+                    <div class="absolute w-[35%] h-1 bg-primary rounded-full top-1/2 -translate-y-1/2 shadow-[0_0_10px_rgba(var(--primary-rgb),0.5)]"></div>
+                    <div class="relative flex flex-col items-center z-10">
+                      <div class="h-4 w-4 rounded-full border-2 border-primary bg-primary text-white flex items-center justify-center text-[8px] font-bold">✓</div>
+                      <span class="text-[9px] font-bold text-foreground mt-1">Ideation</span>
+                    </div>
+                    <div class="relative flex flex-col items-center z-10">
+                      <div class="h-4 w-4 rounded-full border-2 border-primary bg-background flex items-center justify-center">
+                        <div class="h-2 w-2 bg-primary rounded-full animate-ping"></div>
+                      </div>
+                      <span class="text-[9px] font-bold text-foreground mt-1">Regulatory</span>
+                    </div>
+                    <div class="relative flex flex-col items-center z-10">
+                      <div class="h-4 w-4 rounded-full border-2 border-border bg-card"></div>
+                      <span class="text-[9px] font-bold text-muted-foreground mt-1">Clinical</span>
+                    </div>
+                    <div class="relative flex flex-col items-center z-10">
+                      <div class="h-4 w-4 rounded-full border-2 border-border bg-card"></div>
+                      <span class="text-[9px] font-bold text-muted-foreground mt-1">Capital</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="border border-primary/20 bg-primary/5 rounded-lg p-3 flex items-center justify-between shadow-sm">
+                  <div class="flex items-center gap-3">
+                    <div class="h-8 w-8 rounded-full bg-primary flex items-center justify-center text-white shrink-0">
+                      <i data-lucide="play" class="h-3.5 w-3.5 ml-0.5"></i>
+                    </div>
+                    <div>
+                      <p class="text-[11px] font-bold text-foreground">Live Session: FDA Strategy</p>
+                      <p class="text-[9px] text-foreground/70">Dr. Sarah Jenkins · Starting in 5 mins</p>
+                    </div>
+                  </div>
+                  <button class="h-6 bg-foreground text-background text-[10px] font-bold rounded px-3 hover:opacity-90">Join</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating Growth Card -->
+          <div class="absolute -bottom-6 -left-6 bg-card border border-border rounded-xl shadow-2xl p-4 flex items-center gap-4 z-20">
+            <div class="h-12 w-12 rounded-full bg-success/10 flex items-center justify-center text-success">
+              <i data-lucide="trending-up" class="h-6 w-6"></i>
+            </div>
+            <div>
+              <p class="text-sm font-bold text-foreground">Active Cohort Growth</p>
+              <p class="text-2xl font-extrabold text-success">+24%</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Marquee Institution Cloud -->
+  <section class="bg-surface border-y border-border py-16 overflow-hidden">
+    <div class="mx-auto max-w-6xl px-6">
+      <p class="mb-12 text-center text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+        Trailblazing institutions put IGVP at the center of the constituent experience.
+      </p>
+      <div class="relative overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_15%,black_85%,transparent)]">
+        <div class="flex w-max animate-marquee gap-16 pr-16">
+          <div class="flex gap-16 items-center">
+            <span class="text-xl font-bold tracking-tight text-foreground/40 hover:text-foreground transition-colors cursor-default">Mayo Clinic</span>
+            <span class="text-xl font-bold tracking-tight text-foreground/40 hover:text-foreground transition-colors cursor-default">Genentech</span>
+            <span class="text-xl font-bold tracking-tight text-foreground/40 hover:text-foreground transition-colors cursor-default">Cleveland Clinic</span>
+            <span class="text-xl font-bold tracking-tight text-foreground/40 hover:text-foreground transition-colors cursor-default">Stanford Medicine</span>
+            <span class="text-xl font-bold tracking-tight text-foreground/40 hover:text-foreground transition-colors cursor-default">Ascend VC</span>
+            <span class="text-xl font-bold tracking-tight text-foreground/40 hover:text-foreground transition-colors cursor-default">Karolinska</span>
+            <span class="text-xl font-bold tracking-tight text-foreground/40 hover:text-foreground transition-colors cursor-default">Johns Hopkins</span>
+            <span class="text-xl font-bold tracking-tight text-foreground/40 hover:text-foreground transition-colors cursor-default">AIIMS</span>
+          </div>
+          <div class="flex gap-16 items-center">
+            <span class="text-xl font-bold tracking-tight text-foreground/40 hover:text-foreground transition-colors cursor-default">Mayo Clinic</span>
+            <span class="text-xl font-bold tracking-tight text-foreground/40 hover:text-foreground transition-colors cursor-default">Genentech</span>
+            <span class="text-xl font-bold tracking-tight text-foreground/40 hover:text-foreground transition-colors cursor-default">Cleveland Clinic</span>
+            <span class="text-xl font-bold tracking-tight text-foreground/40 hover:text-foreground transition-colors cursor-default">Stanford Medicine</span>
+            <span class="text-xl font-bold tracking-tight text-foreground/40 hover:text-foreground transition-colors cursor-default">Ascend VC</span>
+            <span class="text-xl font-bold tracking-tight text-foreground/40 hover:text-foreground transition-colors cursor-default">Karolinska</span>
+            <span class="text-xl font-bold tracking-tight text-foreground/40 hover:text-foreground transition-colors cursor-default">Johns Hopkins</span>
+            <span class="text-xl font-bold tracking-tight text-foreground/40 hover:text-foreground transition-colors cursor-default">AIIMS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Profile Tracks Directory Section -->
+  <section id="tracks" class="py-20 bg-background border-b border-border">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="text-[13px] font-bold tracking-widest text-primary uppercase mb-4">Tailored Profile Pathways</p>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-foreground leading-[1.15]">
+          Choose Your Dedicated Track
+        </h2>
+        <p class="mt-4 text-lg text-foreground/70 max-w-2xl mx-auto">
+          Explore specialized landing pages tailored specifically for your role in the venture ecosystem.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Card 1: Students -->
+        <a href="students.html" class="group bg-card border border-border hover:border-primary/50 rounded-2xl p-6 transition-all hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between">
+          <div>
+            <div class="h-12 w-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <i data-lucide="graduation-cap" class="h-6 w-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">STEM Students</h3>
+            <p class="text-xs text-foreground/70 leading-relaxed mb-6">72-Hour Bio-Design Sprints, campus ambassador network, and direct deal flow access.</p>
+          </div>
+          <span class="text-xs font-bold text-primary flex items-center gap-1">Explore Student Track <i data-lucide="arrow-right" class="h-3.5 w-3.5"></i></span>
+        </a>
+
+        <!-- Card 2: Founders -->
+        <a href="founders.html" class="group bg-card border border-border hover:border-primary/50 rounded-2xl p-6 transition-all hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between">
+          <div>
+            <div class="h-12 w-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <i data-lucide="rocket" class="h-6 w-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">Founders</h3>
+            <p class="text-xs text-foreground/70 leading-relaxed mb-6">Delaware C-Corp flips, FDA regulatory playbooks, and syndicate capital access.</p>
+          </div>
+          <span class="text-xs font-bold text-primary flex items-center gap-1">Explore Founder Track <i data-lucide="arrow-right" class="h-3.5 w-3.5"></i></span>
+        </a>
+
+        <!-- Card 3: Upskilling -->
+        <a href="upskilling.html" class="group bg-card border border-border hover:border-primary/50 rounded-2xl p-6 transition-all hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between">
+          <div>
+            <div class="h-12 w-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <i data-lucide="briefcase" class="h-6 w-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">Upskilling Professionals</h3>
+            <p class="text-xs text-foreground/70 leading-relaxed mb-6">Part-time Bio-Entrepreneurship masterclasses for clinicians and executives.</p>
+          </div>
+          <span class="text-xs font-bold text-primary flex items-center gap-1">Explore Professional Track <i data-lucide="arrow-right" class="h-3.5 w-3.5"></i></span>
+        </a>
+
+        <!-- Card 4: Rising Investors -->
+        <a href="rising-investors.html" class="group bg-card border border-border hover:border-primary/50 rounded-2xl p-6 transition-all hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between">
+          <div>
+            <div class="h-12 w-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <i data-lucide="trending-up" class="h-6 w-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">Rising Investors</h3>
+            <p class="text-xs text-foreground/70 leading-relaxed mb-6">Angel-in-Training syndicate, real deal due diligence, and term sheet mechanics.</p>
+          </div>
+          <span class="text-xs font-bold text-primary flex items-center gap-1">Explore Investor Track <i data-lucide="arrow-right" class="h-3.5 w-3.5"></i></span>
+        </a>
+
+        <!-- Card 5: Partners -->
+        <a href="partners.html" class="group bg-card border border-border hover:border-primary/50 rounded-2xl p-6 transition-all hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between">
+          <div>
+            <div class="h-12 w-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <i data-lucide="building-2" class="h-6 w-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">Partners</h3>
+            <p class="text-xs text-foreground/70 leading-relaxed mb-6">Clinical trial site matching and tech transfer desks for hospitals & research labs.</p>
+          </div>
+          <span class="text-xs font-bold text-primary flex items-center gap-1">Explore Partner Track <i data-lucide="arrow-right" class="h-3.5 w-3.5"></i></span>
+        </a>
+
+        <!-- Card 6: Service Providers -->
+        <a href="service-providers.html" class="group bg-card border border-border hover:border-primary/50 rounded-2xl p-6 transition-all hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between">
+          <div>
+            <div class="h-12 w-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <i data-lucide="layers" class="h-6 w-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">Service Providers</h3>
+            <p class="text-xs text-foreground/70 leading-relaxed mb-6">Vetted vendor directory placement for CDMOs, legal, regulatory, and CRO firms.</p>
+          </div>
+          <span class="text-xs font-bold text-primary flex items-center gap-1">Explore Provider Track <i data-lucide="arrow-right" class="h-3.5 w-3.5"></i></span>
+        </a>
+
+        <!-- Card 7: Institutional Investors -->
+        <a href="investors.html" class="group bg-card border border-border hover:border-primary/50 rounded-2xl p-6 transition-all hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between lg:col-span-2">
+          <div>
+            <div class="h-12 w-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <i data-lucide="shield-check" class="h-6 w-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">Institutional Investors</h3>
+            <p class="text-xs text-foreground/70 leading-relaxed mb-6">Pre-vetted, memo-backed cross-border deal flow for VCs, LPs, and Family Offices.</p>
+          </div>
+          <span class="text-xs font-bold text-primary flex items-center gap-1">Request Syndicate Access <i data-lucide="arrow-right" class="h-3.5 w-3.5"></i></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Platform OS Section -->
+  <section id="platform" class="py-24 bg-surface border-b border-border relative overflow-hidden">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <p class="text-[13px] font-bold tracking-widest text-primary uppercase mb-4">The Platform</p>
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground mb-16 leading-[1.1]">
+        One operating system.<br /><span class="text-foreground/60">Every role, every workflow.</span>
+      </h2>
+
+      <div class="relative mx-auto w-full max-w-6xl rounded-2xl overflow-hidden shadow-2xl border border-border bg-card">
+        <!-- Mac Header -->
+        <div class="bg-surface border-b border-border flex items-center px-4 py-3 gap-4">
+          <div class="flex gap-1.5">
+            <div class="h-3 w-3 rounded-full bg-[#ff5f56]"></div>
+            <div class="h-3 w-3 rounded-full bg-[#ffbd2e]"></div>
+            <div class="h-3 w-3 rounded-full bg-[#27c93f]"></div>
+          </div>
+          <div class="text-[11px] font-medium text-muted-foreground font-mono flex-1 text-left flex items-center justify-between">
+            <span>igvp.app / founder / neurogen-bio</span>
+            <span class="flex items-center gap-1.5 text-success">
+              <div class="h-1.5 w-1.5 rounded-full bg-success animate-pulse"></div>
+              Live - Investor round in progress
+            </span>
+          </div>
+        </div>
+
+        <!-- Platform Content -->
+        <div class="flex flex-col md:flex-row h-auto md:h-[540px] text-left">
+          <!-- Sidebar -->
+          <div class="w-full md:w-64 border-r border-border p-4 space-y-6 flex-shrink-0 bg-background/50">
+            <div class="space-y-1">
+              <div class="flex items-center gap-3 px-3 py-2 rounded-lg bg-foreground/5 text-foreground font-medium text-sm">
+                <i data-lucide="activity" class="h-4 w-4"></i> Workspace
+              </div>
+              <div class="flex items-center justify-between px-3 py-2 text-foreground/60 hover:text-foreground hover:bg-foreground/5 rounded-lg cursor-pointer transition text-sm">
+                <span class="flex items-center gap-3"><i data-lucide="trending-up" class="h-4 w-4"></i> Fundraising</span>
+                <span class="bg-success/20 text-success text-[10px] px-1.5 rounded font-bold">7</span>
+              </div>
+              <div class="flex items-center gap-3 px-3 py-2 text-foreground/60 hover:text-foreground hover:bg-foreground/5 rounded-lg cursor-pointer transition text-sm">
+                <i data-lucide="stethoscope" class="h-4 w-4"></i> Clinical Model
+              </div>
+              <div class="flex items-center gap-3 px-3 py-2 text-foreground/60 hover:text-foreground hover:bg-foreground/5 rounded-lg cursor-pointer transition text-sm">
+                <i data-lucide="sparkles" class="h-4 w-4"></i> AI Copilot
+              </div>
+            </div>
+            <div>
+              <p class="text-[10px] font-bold text-muted-foreground uppercase tracking-wider px-3 mb-2">Portfolio</p>
+              <div class="space-y-1">
+                <div class="flex items-center gap-3 px-3 py-2 text-foreground/80 hover:text-foreground hover:bg-foreground/5 rounded-lg cursor-pointer transition text-sm">
+                  <div class="h-2 w-2 rounded-full bg-success"></div> NeuroGen Bio
+                </div>
+                <div class="flex items-center gap-3 px-3 py-2 text-foreground/60 hover:text-foreground hover:bg-foreground/5 rounded-lg cursor-pointer transition text-sm">
+                  <div class="h-2 w-2 rounded-full bg-info"></div> Cardia Health
+                </div>
+                <div class="flex items-center gap-3 px-3 py-2 text-foreground/60 hover:text-foreground hover:bg-foreground/5 rounded-lg cursor-pointer transition text-sm">
+                  <div class="h-2 w-2 rounded-full bg-warning"></div> Oncora Labs
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Main Dashboard Area -->
+          <div class="flex-1 p-6 flex flex-col gap-6 bg-card">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+              <div class="border border-border rounded-xl p-4 bg-background/50">
+                <p class="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-2">Round Size</p>
+                <div class="flex items-end justify-between"><span class="text-2xl font-bold text-foreground">$12.0M</span><span class="text-xs font-medium text-success">+18%</span></div>
+              </div>
+              <div class="border border-border rounded-xl p-4 bg-background/50">
+                <p class="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-2">Committed</p>
+                <div class="flex items-end justify-between"><span class="text-2xl font-bold text-foreground">$8.4M</span><span class="text-xs font-medium text-info">70%</span></div>
+              </div>
+              <div class="border border-border rounded-xl p-4 bg-background/50">
+                <p class="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-2">Investors</p>
+                <div class="flex items-end justify-between"><span class="text-2xl font-bold text-foreground">14</span><span class="text-xs font-medium text-warning">+3</span></div>
+              </div>
+              <div class="border border-border rounded-xl p-4 bg-background/50">
+                <p class="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-2">Close ETA</p>
+                <div class="flex items-end justify-between"><span class="text-2xl font-bold text-foreground">42d</span><span class="text-xs font-medium text-success">on track</span></div>
+              </div>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-6 flex-1 min-h-0">
+              <div class="flex-1 border border-border rounded-xl bg-background/50 p-5 flex flex-col relative overflow-hidden">
+                <div class="flex justify-between items-start mb-4">
+                  <div>
+                    <p class="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-1">Fundraising Velocity</p>
+                    <p class="text-2xl font-bold text-foreground">$8.4M / $12M</p>
+                  </div>
+                  <span class="bg-primary/10 text-primary border border-primary/20 text-xs px-2 py-1 rounded-md font-bold">Series A</span>
+                </div>
+                <div class="flex-1 relative mt-2 min-h-[120px]">
+                  <svg class="absolute inset-0 h-full w-full" preserveAspectRatio="none" viewBox="0 0 100 100">
+                    <path d="M0,80 Q20,70 40,55 T80,30 T100,10" fill="none" stroke="currentColor" stroke-width="3" class="text-primary"></path>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="w-full lg:w-72 border border-border rounded-xl bg-background/50 p-5 flex flex-col">
+                <p class="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-4">Investor Pipeline</p>
+                <div class="space-y-3 flex-1">
+                  <div class="flex items-center justify-between text-xs"><span class="font-medium text-foreground">Andreessen Horowitz</span><span class="text-success font-bold">Term sheet</span></div>
+                  <div class="flex items-center justify-between text-xs"><span class="font-medium text-foreground">GV</span><span class="text-info font-bold">Diligence</span></div>
+                  <div class="flex items-center justify-between text-xs"><span class="font-medium text-foreground">Sequoia Health</span><span class="text-warning font-bold">IC review</span></div>
+                  <div class="flex items-center justify-between text-xs"><span class="font-medium text-foreground">NEA</span><span class="text-success font-bold">Intro call</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="border border-primary/20 bg-primary/10 rounded-xl p-4 flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="h-9 w-9 rounded-full bg-primary flex items-center justify-center text-white shrink-0">
+                  <i data-lucide="sparkles" class="h-4 w-4"></i>
+                </div>
+                <div>
+                  <p class="text-xs font-bold text-foreground">IGVP AI · Investment memo drafted</p>
+                  <p class="text-[10px] text-foreground/70">Based on 14 investor conversations & clinical milestones · 2 min ago</p>
+                </div>
+              </div>
+              <button class="h-7 bg-foreground text-background text-xs font-bold rounded-full px-4 hover:opacity-90">Review</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs Section -->
+  <section id="programs" class="py-24 bg-background border-b border-border">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="text-[13px] font-bold tracking-widest text-primary uppercase mb-4">Programs</p>
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground mb-6 leading-[1.1]">
+          Two tracks. One shared operating system.
+        </h2>
+        <p class="text-lg text-foreground/70 max-w-2xl mx-auto">
+          From clinical curiosity to funded venture — pick the arc that matches where you are.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+        <!-- Track A -->
+        <div class="bg-card border border-border rounded-[2rem] p-8 flex flex-col justify-between">
+          <div>
+            <p class="text-[11px] font-bold text-foreground/60 uppercase tracking-widest mb-4">Track A · Fellowship</p>
+            <h3 class="text-3xl font-extrabold text-foreground mb-2">The Clinical Innovator</h3>
+            <p class="text-sm text-foreground/60 mb-8">12 weeks</p>
+
+            <ul class="space-y-5 mb-10">
+              <li class="flex items-start gap-3 text-sm text-foreground/80"><i data-lucide="check-circle-2" class="h-5 w-5 text-primary shrink-0 mt-0.5"></i> Core curriculum · healthtech, regulatory, capital markets</li>
+              <li class="flex items-start gap-3 text-sm text-foreground/80"><i data-lucide="check-circle-2" class="h-5 w-5 text-primary shrink-0 mt-0.5"></i> 1:1 clinician mentor + weekly office hours</li>
+              <li class="flex items-start gap-3 text-sm text-foreground/80"><i data-lucide="check-circle-2" class="h-5 w-5 text-primary shrink-0 mt-0.5"></i> CME credits recognized by ACGME partners</li>
+              <li class="flex items-start gap-3 text-sm text-foreground/80"><i data-lucide="check-circle-2" class="h-5 w-5 text-primary shrink-0 mt-0.5"></i> Capstone: validated MVP + investor deck</li>
+            </ul>
+          </div>
+          <a href="upskilling.html" class="w-full h-14 rounded-xl border border-border hover:bg-surface text-foreground font-bold flex items-center justify-center transition-all">Apply to Track A</a>
+        </div>
+
+        <!-- Track B -->
+        <div class="relative bg-card border-2 border-primary rounded-[2rem] p-8 flex flex-col justify-between shadow-2xl">
+          <div class="absolute top-0 right-8 -translate-y-1/2">
+            <span class="bg-warning/20 text-warning text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest border border-warning/30">Most Popular</span>
+          </div>
+          <div>
+            <p class="text-[11px] font-bold text-foreground/60 uppercase tracking-widest mb-4">Track B · Incubator</p>
+            <h3 class="text-3xl font-extrabold text-foreground mb-2">The Founder Studio</h3>
+            <p class="text-sm text-foreground/60 mb-8">16 weeks</p>
+
+            <ul class="space-y-5 mb-10">
+              <li class="flex items-start gap-3 text-sm text-foreground/80"><i data-lucide="check-circle-2" class="h-5 w-5 text-primary shrink-0 mt-0.5"></i> Everything in Track A</li>
+              <li class="flex items-start gap-3 text-sm text-foreground/80"><i data-lucide="check-circle-2" class="h-5 w-5 text-primary shrink-0 mt-0.5"></i> $50K non-dilutive seed grant + $250K SAFE match</li>
+              <li class="flex items-start gap-3 text-sm text-foreground/80"><i data-lucide="check-circle-2" class="h-5 w-5 text-primary shrink-0 mt-0.5"></i> Dedicated venture partner + FDA advisor</li>
+              <li class="flex items-start gap-3 text-sm text-foreground/80"><i data-lucide="check-circle-2" class="h-5 w-5 text-primary shrink-0 mt-0.5"></i> Demo Day with 200+ vetted investors</li>
+            </ul>
+          </div>
+          <a href="founders.html" class="w-full h-14 rounded-xl bg-primary hover:bg-primary-hover text-white font-bold flex items-center justify-center shadow-lg transition-all">Apply to Track B</a>
+        </div>
+
+        <!-- Enterprise -->
+        <div class="bg-card border border-border rounded-[2rem] p-8 flex flex-col justify-between">
+          <div>
+            <p class="text-[11px] font-bold text-foreground/60 uppercase tracking-widest mb-4">Enterprise</p>
+            <h3 class="text-3xl font-extrabold text-foreground mb-2">Institutional License</h3>
+            <p class="text-sm text-foreground/60 mb-8">Custom</p>
+
+            <ul class="space-y-5 mb-10">
+              <li class="flex items-start gap-3 text-sm text-foreground/80"><i data-lucide="check-circle-2" class="h-5 w-5 text-primary shrink-0 mt-0.5"></i> Whitelabel curriculum for your institution</li>
+              <li class="flex items-start gap-3 text-sm text-foreground/80"><i data-lucide="check-circle-2" class="h-5 w-5 text-primary shrink-0 mt-0.5"></i> Dedicated cohort infrastructure</li>
+              <li class="flex items-start gap-3 text-sm text-foreground/80"><i data-lucide="check-circle-2" class="h-5 w-5 text-primary shrink-0 mt-0.5"></i> Faculty training & co-authored research</li>
+              <li class="flex items-start gap-3 text-sm text-foreground/80"><i data-lucide="check-circle-2" class="h-5 w-5 text-primary shrink-0 mt-0.5"></i> SLA, SSO, audit logs, HIPAA add-ons</li>
+            </ul>
+          </div>
+          <a href="partners.html" class="w-full h-14 rounded-xl border border-border hover:bg-surface text-foreground font-bold flex items-center justify-center transition-all">Book a call</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Success Stories Testimonial Marquee -->
+  <section id="stories" class="py-24 bg-surface border-b border-border overflow-hidden">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center mb-16">
+      <p class="text-[13px] font-bold tracking-widest text-primary uppercase mb-4">Success Stories</p>
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground leading-[1.1]">
+        Ventures born inside IGVP.
+      </h2>
+    </div>
+
+    <div class="relative overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_10%,black_90%,transparent)]">
+      <div class="flex w-max animate-marquee gap-8 pr-8">
+        <div class="flex gap-8">
+          <!-- Story 1 -->
+          <div class="w-[420px] bg-card border border-border rounded-3xl p-8 flex flex-col justify-between shrink-0 shadow-lg">
+            <p class="text-base text-foreground/80 leading-relaxed mb-8">"IGVP compressed five years of trial-and-error into one cohort. We closed our Series A ninety days after Demo Day."</p>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="h-10 w-10 rounded-full bg-primary/20 text-primary font-bold flex items-center justify-center">P</div>
+                <div class="text-left">
+                  <p class="text-sm font-bold text-foreground">Dr. Priya Ravindran</p>
+                  <p class="text-xs text-foreground/60">Founder & CEO · NeuroGen Bio</p>
+                </div>
+              </div>
+              <span class="bg-warning/10 text-warning border border-warning/20 px-3 py-1 rounded-full text-[10px] font-bold uppercase">$14M SERIES A</span>
+            </div>
+          </div>
+
+          <!-- Story 2 -->
+          <div class="w-[420px] bg-card border border-border rounded-3xl p-8 flex flex-col justify-between shrink-0 shadow-lg">
+            <p class="text-base text-foreground/80 leading-relaxed mb-8">"The only place where I could pitch to a Kaiser CMO on Monday and an a16z partner on Wednesday — in one workspace."</p>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="h-10 w-10 rounded-full bg-primary/20 text-primary font-bold flex items-center justify-center">M</div>
+                <div class="text-left">
+                  <p class="text-sm font-bold text-foreground">Marcus Okafor, MD</p>
+                  <p class="text-xs text-foreground/60">Co-founder · Cardia Health</p>
+                </div>
+              </div>
+              <span class="bg-warning/10 text-warning border border-warning/20 px-3 py-1 rounded-full text-[10px] font-bold uppercase">3 HOSPITAL LOIS</span>
+            </div>
+          </div>
+
+          <!-- Story 3 -->
+          <div class="w-[420px] bg-card border border-border rounded-3xl p-8 flex flex-col justify-between shrink-0 shadow-lg">
+            <p class="text-base text-foreground/80 leading-relaxed mb-8">"As an investor, IGVP deal flow is pre-vetted, pre-diligenced and pre-clinical-validated. Our conversion tripled."</p>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="h-10 w-10 rounded-full bg-primary/20 text-primary font-bold flex items-center justify-center">E</div>
+                <div class="text-left">
+                  <p class="text-sm font-bold text-foreground">Elena Kowalski</p>
+                  <p class="text-xs text-foreground/60">Partner · Emerald Health</p>
+                </div>
+              </div>
+              <span class="bg-warning/10 text-warning border border-warning/20 px-3 py-1 rounded-full text-[10px] font-bold uppercase">12 INVESTMENTS</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex gap-8">
+          <!-- Story 1 -->
+          <div class="w-[420px] bg-card border border-border rounded-3xl p-8 flex flex-col justify-between shrink-0 shadow-lg">
+            <p class="text-base text-foreground/80 leading-relaxed mb-8">"IGVP compressed five years of trial-and-error into one cohort. We closed our Series A ninety days after Demo Day."</p>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="h-10 w-10 rounded-full bg-primary/20 text-primary font-bold flex items-center justify-center">P</div>
+                <div class="text-left">
+                  <p class="text-sm font-bold text-foreground">Dr. Priya Ravindran</p>
+                  <p class="text-xs text-foreground/60">Founder & CEO · NeuroGen Bio</p>
+                </div>
+              </div>
+              <span class="bg-warning/10 text-warning border border-warning/20 px-3 py-1 rounded-full text-[10px] font-bold uppercase">$14M SERIES A</span>
+            </div>
+          </div>
+
+          <!-- Story 2 -->
+          <div class="w-[420px] bg-card border border-border rounded-3xl p-8 flex flex-col justify-between shrink-0 shadow-lg">
+            <p class="text-base text-foreground/80 leading-relaxed mb-8">"The only place where I could pitch to a Kaiser CMO on Monday and an a16z partner on Wednesday — in one workspace."</p>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="h-10 w-10 rounded-full bg-primary/20 text-primary font-bold flex items-center justify-center">M</div>
+                <div class="text-left">
+                  <p class="text-sm font-bold text-foreground">Marcus Okafor, MD</p>
+                  <p class="text-xs text-foreground/60">Co-founder · Cardia Health</p>
+                </div>
+              </div>
+              <span class="bg-warning/10 text-warning border border-warning/20 px-3 py-1 rounded-full text-[10px] font-bold uppercase">3 HOSPITAL LOIS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-background border-t border-border">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid gap-12 md:grid-cols-5 lg:grid-cols-6">
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-2 font-black text-2xl text-foreground mb-4">
+            <span class="bg-primary text-white text-sm px-2 py-0.5 rounded">IGVP</span>
+            <span>INSTITUTE</span>
+          </div>
+          <p class="text-sm text-foreground/70 max-w-xs leading-relaxed">
+            Ingenious Global Venture Partners.<br />We bring companies and customers together.
+          </p>
+        </div>
+        <div>
+          <p class="text-base font-bold text-foreground mb-4">Products</p>
+          <ul class="space-y-3 text-sm text-foreground/70">
+            <li><a href="#platform" class="hover:text-primary">Education Cloud</a></li>
+            <li><a href="#platform" class="hover:text-primary">Agentforce AI</a></li>
+            <li><a href="#platform" class="hover:text-primary">Venture OS</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-base font-bold text-foreground mb-4">Tracks</p>
+          <ul class="space-y-3 text-sm text-foreground/70">
+            <li><a href="students.html" class="hover:text-primary">STEM Students</a></li>
+            <li><a href="founders.html" class="hover:text-primary">Founders</a></li>
+            <li><a href="upskilling.html" class="hover:text-primary">Upskilling</a></li>
+            <li><a href="rising-investors.html" class="hover:text-primary">Rising Investors</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-base font-bold text-foreground mb-4">Ecosystem</p>
+          <ul class="space-y-3 text-sm text-foreground/70">
+            <li><a href="partners.html" class="hover:text-primary">Partners</a></li>
+            <li><a href="service-providers.html" class="hover:text-primary">Service Providers</a></li>
+            <li><a href="investors.html" class="hover:text-primary">Institutional Investors</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-16 pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between text-xs text-foreground/60 gap-4">
+        <span>© Copyright 2026 IGVP, Inc. All rights reserved.</span>
+        <div class="flex items-center gap-6">
+          <a href="#" class="hover:text-primary">Privacy</a>
+          <a href="#" class="hover:text-primary">Terms</a>
+          <a href="#" class="hover:text-primary">Trust</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Copilot AI Widget -->
+  <div class="fixed bottom-6 right-6 z-50">
+    <button onclick="toggleCopilot()" class="h-14 w-14 rounded-full bg-primary hover:bg-primary-hover text-white shadow-2xl flex items-center justify-center transition-transform hover:scale-105">
+      <i data-lucide="bot" class="h-7 w-7"></i>
+    </button>
+
+    <div id="copilot-dialog" class="hidden absolute bottom-18 right-0 w-80 sm:w-96 bg-card border border-border rounded-2xl shadow-2xl flex-col overflow-hidden z-50">
+      <div class="bg-primary text-white p-4 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <i data-lucide="sparkles" class="h-5 w-5"></i>
+          <span class="font-bold text-sm">IGVP Copilot AI</span>
+        </div>
+        <button onclick="toggleCopilot()" class="hover:opacity-80"><i data-lucide="x" class="h-4 w-4"></i></button>
+      </div>
+      <div id="copilot-messages" class="p-4 h-72 overflow-y-auto bg-background/50 space-y-3">
+        <div class="flex items-start gap-2">
+          <div class="h-6 w-6 rounded-full bg-primary flex items-center justify-center text-white text-[10px] font-bold shrink-0">AI</div>
+          <div class="bg-surface border border-border text-foreground text-xs p-3 rounded-xl max-w-[85%] shadow-sm">
+            Welcome to IGVP Institute! How can I assist your venture or academic track today?
+          </div>
+        </div>
+      </div>
+      <div class="p-3 bg-surface border-t border-border flex items-center gap-2">
+        <input id="copilot-input" type="text" placeholder="Ask AI Copilot..." class="flex-1 bg-background border border-border rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-primary text-foreground" onkeypress="if(event.key==='Enter'){ sendCopilotMessage(this.value); this.value=''; }" />
+        <button onclick="const inp=document.getElementById('copilot-input'); if(inp.value){ sendCopilotMessage(inp.value); inp.value=''; }" class="bg-primary text-white p-2 rounded-lg hover:bg-primary-hover"><i data-lucide="send" class="h-3.5 w-3.5"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/igvp-landing.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>
