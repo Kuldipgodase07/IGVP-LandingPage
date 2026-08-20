@@ -1,0 +1,219 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap");
+
+/*
+ * IGVP — Healthcare Venture Operating System
+ * Enterprise design tokens & core styling.
+ */
+
+:root {
+  --radius: 0.5rem;
+
+  --background: #f4f7fa;
+  --foreground: #102a43;
+  --surface: #ffffff;
+  --surface-2: #f9fbfd;
+
+  --card: #ffffff;
+  --card-foreground: #102a43;
+  --card-alt: #f9fbfd;
+
+  --popover: #ffffff;
+  --popover-foreground: #102a43;
+
+  --primary: #049fd9;
+  --primary-foreground: #ffffff;
+  --primary-hover: #0288c7;
+  --primary-active: #0077b6;
+
+  --secondary: #f1f5f9;
+  --secondary-foreground: #102a43;
+
+  --muted: #f1f5f9;
+  --muted-foreground: #5b6b7a;
+
+  --accent: #e6f4fb;
+  --accent-foreground: #0077b6;
+
+  --destructive: #e74c3c;
+  --destructive-foreground: #ffffff;
+  --success: #2ecc71;
+  --success-foreground: #ffffff;
+  --warning: #f4b942;
+  --warning-foreground: #1f2937;
+  --info: #049fd9;
+  --info-foreground: #ffffff;
+
+  --border: #d6e4f0;
+  --input: #d6e4f0;
+  --ring: #049fd9;
+
+  --sidebar: #f8fafc;
+  --sidebar-foreground: #102a43;
+  --sidebar-primary: #049fd9;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #e6f4fb;
+  --sidebar-accent-foreground: #0077b6;
+  --sidebar-border: #d6e4f0;
+  --sidebar-ring: #049fd9;
+
+  --topnav: #ffffff;
+  --topnav-foreground: #102a43;
+
+  --chart-1: #049fd9;
+  --chart-2: #2ecc71;
+  --chart-3: #f4b942;
+  --chart-4: #7c6bf2;
+  --chart-5: #e74c3c;
+
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Fraunces", "Inter", serif;
+}
+
+.dark {
+  --background: #0b1f33;
+  --foreground: #ffffff;
+  --surface: #0e2238;
+  --surface-2: #16324f;
+
+  --card: #16324f;
+  --card-foreground: #ffffff;
+  --card-alt: #1b3b5a;
+
+  --popover: #16324f;
+  --popover-foreground: #ffffff;
+
+  --primary: #049fd9;
+  --primary-foreground: #ffffff;
+  --primary-hover: #0288c7;
+  --primary-active: #0077b6;
+
+  --secondary: #1b3b5a;
+  --secondary-foreground: #ffffff;
+
+  --muted: #1b3b5a;
+  --muted-foreground: #94a3b8;
+
+  --accent: #0e3a5a;
+  --accent-foreground: #049fd9;
+
+  --destructive: #e74c3c;
+  --destructive-foreground: #ffffff;
+  --success: #2ecc71;
+  --success-foreground: #0b1f33;
+  --warning: #f4b942;
+  --warning-foreground: #0b1f33;
+  --info: #049fd9;
+  --info-foreground: #ffffff;
+
+  --border: #2c4a66;
+  --input: #2c4a66;
+  --ring: #049fd9;
+
+  --sidebar: #081826;
+  --sidebar-foreground: #cbd5e1;
+  --sidebar-primary: #049fd9;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #0e3a5a;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #12283d;
+  --sidebar-ring: #049fd9;
+
+  --topnav: #0e2238;
+  --topnav-foreground: #ffffff;
+
+  --chart-1: #049fd9;
+  --chart-2: #2ecc71;
+  --chart-3: #f4b942;
+  --chart-4: #9b87f5;
+  --chart-5: #e74c3c;
+}
+
+/* Global Reset & Base Utility Styles */
+* {
+  border-color: var(--border);
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+/* Fallback Utility Classes */
+.bg-background { background-color: var(--background) !important; }
+.text-foreground { color: var(--foreground) !important; }
+
+.bg-surface { background-color: var(--surface) !important; }
+.bg-surface-2 { background-color: var(--surface-2) !important; }
+
+.bg-card { background-color: var(--card) !important; }
+.text-card-foreground { color: var(--card-foreground) !important; }
+
+.bg-primary { background-color: var(--primary) !important; }
+.text-primary { color: var(--primary) !important; }
+.text-primary-foreground { color: var(--primary-foreground) !important; }
+
+.bg-muted { background-color: var(--muted) !important; }
+.text-muted-foreground { color: var(--muted-foreground) !important; }
+
+.border-border { border-color: var(--border) !important; }
+
+.grid-enterprise {
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(44, 74, 102, 0.4) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(44, 74, 102, 0.4) 1px,
+      transparent 1px
+    );
+  background-size: 48px 48px;
+}
+
+.text-gradient-brand {
+  background: linear-gradient(135deg, #049fd9 0%, #7c6bf2 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.surface-glass {
+  background: rgba(22, 50, 79, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Modern Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--primary-hover);
+}
