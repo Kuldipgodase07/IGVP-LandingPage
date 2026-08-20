@@ -1,0 +1,285 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap");
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * IGVP — Healthcare Venture Operating System
+ * Enterprise design tokens (Cisco / Fabric / Salesforce inspired).
+ * All tokens are semantic; components must never hardcode colors.
+ */
+
+@theme inline {
+  --font-sans: "Inter", "SF Pro Display", "IBM Plex Sans", system-ui, sans-serif;
+  --font-display: "Inter", "SF Pro Display", system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --animate-marquee: marquee 40s linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-card-alt: var(--card-alt);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-active: var(--primary-active);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --color-topnav: var(--topnav);
+  --color-topnav-foreground: var(--topnav-foreground);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --shadow-elevation-1: 0 1px 2px 0 rgb(8 24 38 / 0.06), 0 1px 3px 0 rgb(8 24 38 / 0.04);
+  --shadow-elevation-2: 0 4px 12px -2px rgb(8 24 38 / 0.1), 0 2px 6px -2px rgb(8 24 38 / 0.06);
+  --shadow-elevation-3: 0 12px 32px -8px rgb(8 24 38 / 0.18), 0 4px 12px -4px rgb(8 24 38 / 0.08);
+  --shadow-glow-primary: 0 0 0 1px rgb(4 159 217 / 0.35), 0 8px 24px -6px rgb(4 159 217 / 0.35);
+}
+
+/* LIGHT THEME (Meraki / Fabric) */
+:root {
+  --radius: 0.5rem;
+
+  --background: #f4f7fa;
+  --foreground: #102a43;
+  --surface: #ffffff;
+  --surface-2: #f9fbfd;
+
+  --card: #ffffff;
+  --card-foreground: #102a43;
+  --card-alt: #f9fbfd;
+
+  --popover: #ffffff;
+  --popover-foreground: #102a43;
+
+  --primary: #049fd9;
+  --primary-foreground: #ffffff;
+  --primary-hover: #0288c7;
+  --primary-active: #0077b6;
+
+  --secondary: #f1f5f9;
+  --secondary-foreground: #102a43;
+
+  --muted: #f1f5f9;
+  --muted-foreground: #5b6b7a;
+
+  --accent: #e6f4fb;
+  --accent-foreground: #0077b6;
+
+  --destructive: #e74c3c;
+  --destructive-foreground: #ffffff;
+  --success: #2ecc71;
+  --success-foreground: #ffffff;
+  --warning: #f4b942;
+  --warning-foreground: #1f2937;
+  --info: #049fd9;
+  --info-foreground: #ffffff;
+
+  --border: #d6e4f0;
+  --input: #d6e4f0;
+  --ring: #049fd9;
+
+  --sidebar: #f8fafc;
+  --sidebar-foreground: #102a43;
+  --sidebar-primary: #049fd9;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #e6f4fb;
+  --sidebar-accent-foreground: #0077b6;
+  --sidebar-border: #d6e4f0;
+  --sidebar-ring: #049fd9;
+
+  --topnav: #ffffff;
+  --topnav-foreground: #102a43;
+
+  --chart-1: #049fd9;
+  --chart-2: #2ecc71;
+  --chart-3: #f4b942;
+  --chart-4: #7c6bf2;
+  --chart-5: #e74c3c;
+}
+
+/* DARK THEME (Cisco Security Cloud) */
+.dark {
+  --background: #0b1f33;
+  --foreground: #ffffff;
+  --surface: #0e2238;
+  --surface-2: #16324f;
+
+  --card: #16324f;
+  --card-foreground: #ffffff;
+  --card-alt: #1b3b5a;
+
+  --popover: #16324f;
+  --popover-foreground: #ffffff;
+
+  --primary: #049fd9;
+  --primary-foreground: #ffffff;
+  --primary-hover: #0288c7;
+  --primary-active: #0077b6;
+
+  --secondary: #1b3b5a;
+  --secondary-foreground: #ffffff;
+
+  --muted: #1b3b5a;
+  --muted-foreground: #94a3b8;
+
+  --accent: #0e3a5a;
+  --accent-foreground: #049fd9;
+
+  --destructive: #e74c3c;
+  --destructive-foreground: #ffffff;
+  --success: #2ecc71;
+  --success-foreground: #0b1f33;
+  --warning: #f4b942;
+  --warning-foreground: #0b1f33;
+  --info: #049fd9;
+  --info-foreground: #ffffff;
+
+  --border: #2c4a66;
+  --input: #2c4a66;
+  --ring: #049fd9;
+
+  --sidebar: #081826;
+  --sidebar-foreground: #cbd5e1;
+  --sidebar-primary: #049fd9;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #0e3a5a;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #12283d;
+  --sidebar-ring: #049fd9;
+
+  --topnav: #0e2238;
+  --topnav-foreground: #ffffff;
+
+  --chart-1: #049fd9;
+  --chart-2: #2ecc71;
+  --chart-3: #f4b942;
+  --chart-4: #9b87f5;
+  --chart-5: #e74c3c;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+@utility grid-enterprise {
+  background-image:
+    linear-gradient(
+      to right,
+      color-mix(in oklab, var(--color-border) 40%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in oklab, var(--color-border) 40%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 48px 48px;
+}
+
+@utility text-gradient-brand {
+  background: linear-gradient(135deg, #049fd9 0%, #7c6bf2 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility surface-glass {
+  background: color-mix(in oklab, var(--color-card) 70%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Modern Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-primary-hover);
+}
