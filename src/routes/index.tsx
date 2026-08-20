@@ -352,98 +352,70 @@ function Landing() {
         </div>
       </section>
 
-      {/* Logo Cloud (Marquee) */}
-      <section className="bg-surface border-y border-border py-14 overflow-hidden">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="mb-10 text-center text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+      {/* Logo Cloud (Marquee - Single Row of Provided Institution Logos) */}
+      <section className="bg-surface border-y border-border py-12 overflow-hidden">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-8">
+          <p className="text-center text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground">
             Trailblazing institutions put IGVP at the center of the constituent experience.
           </p>
-          <div className="relative overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_10%,black_90%,transparent)]">
-            <div className="flex w-max animate-marquee gap-8 pr-8 items-center hover:[animation-play-state:paused]">
-              {/* Duplicated list to create the seamless infinite scroll effect */}
-              {[...Array(2)].map((_, groupIndex) => (
-                <div key={groupIndex} className="flex gap-8 items-center shrink-0">
-                  {/* Johns Hopkins University */}
-                  <div className="flex items-center gap-3 shrink-0 opacity-75 hover:opacity-100 transition-opacity">
-                    <svg className="h-9 w-auto text-foreground" viewBox="0 0 200 48" fill="currentColor">
-                      <path d="M12 4c0 0-8 3-8 15s8 19 8 19 8-7 8-19S12 4 12 4zm0 4a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm-4 17v-2h8v2h-8z"/>
-                      <text x="32" y="22" fontFamily="Georgia, serif" fontSize="12" fontWeight="bold" letterSpacing="1">JOHNS HOPKINS</text>
-                      <text x="32" y="34" fontFamily="Georgia, serif" fontSize="8" letterSpacing="2.5">UNIVERSITY</text>
-                    </svg>
-                  </div>
+        </div>
 
-                  {/* Stanford Medicine */}
-                  <div className="flex items-center gap-3 shrink-0 opacity-75 hover:opacity-100 transition-opacity">
-                    <svg className="h-9 w-auto text-foreground" viewBox="0 0 170 48" fill="currentColor">
-                      <g transform="translate(0, 4)">
-                        <rect x="2" y="2" width="32" height="32" rx="3" fill="none" stroke="currentColor" strokeWidth="2.5"/>
-                        <line x1="18" y1="2" x2="18" y2="34" stroke="currentColor" strokeWidth="2"/>
-                        <line x1="2" y1="18" x2="34" y2="18" stroke="currentColor" strokeWidth="2"/>
-                        <path d="M18 5l-5 9h10l-5-9zM18 13l-6 10h12l-6-10z" />
-                      </g>
-                      <text x="44" y="23" fontFamily="serif" fontSize="16" fontWeight="bold">Stanford</text>
-                      <text x="44" y="35" fontFamily="sans-serif" fontSize="9" fontWeight="600" letterSpacing="2">MEDICINE</text>
-                    </svg>
-                  </div>
-
-                  {/* MIT */}
-                  <div className="flex items-center gap-3 shrink-0 opacity-75 hover:opacity-100 transition-opacity">
-                    <svg className="h-9 w-auto text-foreground" viewBox="0 0 210 48" fill="currentColor">
-                      <rect x="0" y="8" width="7" height="32"/>
-                      <rect x="11" y="8" width="7" height="20"/>
-                      <rect x="11" y="33" width="7" height="7"/>
-                      <rect x="22" y="16" width="7" height="24"/>
-                      <rect x="33" y="8" width="7" height="32"/>
-                      <rect x="44" y="8" width="18" height="7"/>
-                      <rect x="50" y="16" width="7" height="24"/>
-                      <text x="68" y="19" fontFamily="sans-serif" fontSize="8.5" fontWeight="bold">Massachusetts</text>
-                      <text x="68" y="29" fontFamily="sans-serif" fontSize="8.5" fontWeight="bold">Institute of</text>
-                      <text x="68" y="39" fontFamily="sans-serif" fontSize="8.5" fontWeight="bold">Technology</text>
-                    </svg>
-                  </div>
-
-                  {/* Berkeley */}
-                  <div className="flex items-center gap-3 shrink-0 opacity-75 hover:opacity-100 transition-opacity">
-                    <svg className="h-9 w-auto text-foreground" viewBox="0 0 190 48" fill="currentColor">
-                      <text x="0" y="27" fontFamily="Georgia, serif" fontSize="25" fontWeight="bold">Berkeley</text>
-                      <text x="2" y="39" fontFamily="sans-serif" fontSize="7.5" fontWeight="600" letterSpacing="1.2">UNIVERSITY OF CALIFORNIA</text>
-                    </svg>
-                  </div>
-
-                  {/* Mayo Clinic */}
-                  <div className="flex items-center gap-3 shrink-0 opacity-75 hover:opacity-100 transition-opacity">
-                    <svg className="h-10 w-auto text-foreground" viewBox="0 0 100 52" fill="currentColor">
-                      <text x="50" y="15" textAnchor="middle" fontFamily="Georgia, serif" fontSize="11" fontWeight="bold" letterSpacing="1.5">MAYO</text>
-                      <text x="50" y="26" textAnchor="middle" fontFamily="Georgia, serif" fontSize="9.5" fontWeight="bold" letterSpacing="1">CLINIC</text>
-                      <g transform="translate(35, 29)">
-                        <path d="M5 0v9c0 3.5 2.5 6 5 6s5-2.5 5-6V0H5z" fill="none" stroke="currentColor" strokeWidth="1.5"/>
-                        <path d="M10 0v9c0 3.5 2.5 6 5 6s5-2.5 5-6V0h-5z" fill="none" stroke="currentColor" strokeWidth="1.5"/>
-                        <path d="M15 0v9c0 3.5 2.5 6 5 6s5-2.5 5-6V0h-5z" fill="none" stroke="currentColor" strokeWidth="1.5"/>
-                      </g>
-                    </svg>
-                  </div>
-
-                  {/* Baylor College of Medicine */}
-                  <div className="flex items-center gap-3 shrink-0 opacity-75 hover:opacity-100 transition-opacity">
-                    <svg className="h-9 w-auto text-foreground" viewBox="0 0 190 48" fill="currentColor">
-                      <text x="95" y="23" textAnchor="middle" fontFamily="Times New Roman, serif" fontSize="17" fontWeight="bold" letterSpacing="2">BAYLOR</text>
-                      <text x="95" y="36" textAnchor="middle" fontFamily="sans-serif" fontSize="7.5" fontWeight="600" letterSpacing="1.8">COLLEGE OF MEDICINE</text>
-                    </svg>
-                  </div>
-
-                  {/* Science Gallery */}
-                  <div className="flex items-center gap-3 shrink-0 opacity-75 hover:opacity-100 transition-opacity">
-                    <svg className="h-9 w-auto text-foreground" viewBox="0 0 180 48" fill="currentColor">
-                      <circle cx="18" cy="24" r="15" fill="currentColor"/>
-                      <text x="18" y="27" textAnchor="middle" fill="var(--background)" fontFamily="sans-serif" fontSize="6" fontWeight="900" letterSpacing="0.5">SCIENCE</text>
-                      <line x1="40" y1="10" x2="40" y2="38" stroke="currentColor" strokeWidth="1.5"/>
-                      <text x="48" y="22" fontFamily="Georgia, serif" fontSize="11" fontWeight="bold" letterSpacing="1">SCIENCE</text>
-                      <text x="48" y="34" fontFamily="Georgia, serif" fontSize="11" fontWeight="bold" letterSpacing="1">GALLERY</text>
-                    </svg>
-                  </div>
+        {/* Single Row Horizontal Animated Marquee (All Real Institution Logos - Instant Seamless Rotation) */}
+        <div className="relative overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_8%,black_92%,transparent)]">
+          <div className="flex w-max animate-marquee gap-14 pr-14 items-center hover:[animation-play-state:paused]">
+            {[...Array(2)].map((_, groupIndex) => (
+              <div key={`all-real-logos-${groupIndex}`} className="flex gap-14 items-center shrink-0">
+                {/* 1. MIT */}
+                <div className="flex items-center gap-3 shrink-0 opacity-90 hover:opacity-100 transition-all hover:scale-105">
+                  <img src="/logos/mit-logo-1-2.png" alt="MIT" className="h-12 w-auto object-contain" />
                 </div>
-              ))}
-            </div>
+
+                {/* 2. Harvard University */}
+                <div className="flex items-center gap-3 shrink-0 opacity-90 hover:opacity-100 transition-all hover:scale-105">
+                  <img src="/logos/harvard-university-coat-of-arms.png" alt="Harvard University" className="h-14 w-auto object-contain rounded-sm" />
+                </div>
+
+                {/* 3. University of Madras */}
+                <div className="flex items-center gap-3 shrink-0 opacity-90 hover:opacity-100 transition-all hover:scale-105">
+                  <img src="/logos/madras-university-seal.png" alt="University of Madras" className="h-14 w-auto object-contain" />
+                </div>
+
+                {/* 4. University of Mumbai */}
+                <div className="flex items-center gap-3 shrink-0 opacity-90 hover:opacity-100 transition-all hover:scale-105">
+                  <img src="/logos/university-of-mumbai-coat-of-arms.png" alt="University of Mumbai" className="h-14 w-auto object-contain" />
+                </div>
+
+                {/* 5. IIM Ahmedabad */}
+                <div className="flex items-center gap-3 shrink-0 opacity-90 hover:opacity-100 transition-all hover:scale-105">
+                  <img src="/logos/iimlogo.png" alt="IIM Ahmedabad" className="h-12 w-auto object-contain" />
+                </div>
+
+                {/* 6. BITS Pilani */}
+                <div className="flex items-center gap-3 shrink-0 opacity-90 hover:opacity-100 transition-all hover:scale-105">
+                  <img src="/logos/bits-pilani-logo.png" alt="BITS Pilani" className="h-14 w-auto object-contain" />
+                </div>
+
+                {/* 7. IIT Delhi */}
+                <div className="flex items-center gap-3 shrink-0 opacity-90 hover:opacity-100 transition-all hover:scale-105">
+                  <img src="/logos/iit-delhi-logo.png" alt="IIT Delhi" className="h-14 w-auto object-contain" />
+                </div>
+
+                {/* 8. IIT Madras */}
+                <div className="flex items-center gap-3 shrink-0 opacity-90 hover:opacity-100 transition-all hover:scale-105">
+                  <img src="/logos/iit-madras-logo-png-seeklogo-310945.png" alt="IIT Madras" className="h-14 w-auto object-contain" />
+                </div>
+
+                {/* 9. University Seal (images-1.png) */}
+                <div className="flex items-center gap-3 shrink-0 opacity-90 hover:opacity-100 transition-all hover:scale-105">
+                  <img src="/logos/images-1.png" alt="University Seal" className="h-12 w-auto object-contain" />
+                </div>
+
+                {/* 10. University Emblem (images.png) */}
+                <div className="flex items-center gap-3 shrink-0 opacity-90 hover:opacity-100 transition-all hover:scale-105">
+                  <img src="/logos/images.png" alt="University Emblem" className="h-12 w-auto object-contain" />
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
