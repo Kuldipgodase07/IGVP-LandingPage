@@ -454,25 +454,25 @@ function Landing() {
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Section Header */}
-          <div className="text-center max-w-3xl mx-auto mb-12">
+          <div className="text-center max-w-7xl mx-auto mb-10 px-2">
             <span className="inline-flex items-center gap-2 bg-primary/10 text-primary border border-primary/20 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-4 shadow-xs">
               <Play className="h-3.5 w-3.5 fill-primary" /> Live Platform Video Walkthrough
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight leading-[1.15] mb-4">
+            <h2 className="text-base sm:text-xl md:text-3xl lg:text-4xl xl:text-[40px] font-extrabold text-foreground tracking-tight leading-tight mb-4 whitespace-nowrap">
               Experience the Healthcare Venture Operating System
             </h2>
-            <p className="text-base sm:text-lg text-foreground/75 leading-relaxed">
+            <p className="text-base sm:text-lg text-foreground/75 leading-relaxed max-w-3xl mx-auto">
               Watch how IGVP seamlessly unifies STEM education, clinical trial acceleration, and venture capital portfolio management on a single enterprise platform.
             </p>
           </div>
 
-          {/* Apple-Style Cinema Video Player Container */}
-          <div className="relative mx-auto max-w-5xl">
+          {/* Apple-Style Cinema Video Player Container (Wider Width & Sleeker Curves) */}
+          <div className="relative mx-auto max-w-7xl">
             {/* Ambient Background Glow */}
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/30 via-sky-500/20 to-chart-4/30 rounded-[2.5rem] blur-2xl opacity-60 scale-105 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/30 via-sky-500/20 to-chart-4/30 rounded-2xl blur-2xl opacity-60 scale-102 pointer-events-none" />
 
             {/* Main Window Frame */}
-            <div className="relative bg-card/95 backdrop-blur-xl border border-border/80 rounded-[2rem] shadow-[0_25px_60px_rgba(8,24,38,0.2)] overflow-hidden">
+            <div className="relative bg-card/95 backdrop-blur-xl border border-border/80 rounded-2xl shadow-[0_20px_50px_rgba(8,24,38,0.18)] overflow-hidden">
               {/* Window Header */}
               <div className="bg-surface/90 border-b border-border px-5 py-3 flex items-center justify-between gap-4">
                 <div className="flex items-center gap-2">
@@ -505,25 +505,25 @@ function Landing() {
 
               {/* Video Interactive Highlights Footer */}
               <div className="bg-surface/90 border-t border-border p-4 sm:p-6 grid grid-cols-2 md:grid-cols-4 gap-3 text-center">
-                <div className="p-2.5 rounded-xl bg-surface-2/80 border border-border/50">
+                <div className="p-2.5 rounded-lg bg-surface-2/80 border border-border/50">
                   <p className="text-xs font-bold text-foreground flex items-center justify-center gap-1.5">
                     <Zap className="h-3.5 w-3.5 text-primary" /> Live Sourcing
                   </p>
                   <p className="text-[10px] text-muted-foreground mt-0.5">Real-time venture deal flow</p>
                 </div>
-                <div className="p-2.5 rounded-xl bg-surface-2/80 border border-border/50">
+                <div className="p-2.5 rounded-lg bg-surface-2/80 border border-border/50">
                   <p className="text-xs font-bold text-foreground flex items-center justify-center gap-1.5">
                     <GraduationCap className="h-3.5 w-3.5 text-sky-500" /> STEM Cloud
                   </p>
                   <p className="text-[10px] text-muted-foreground mt-0.5">CME-accredited learning</p>
                 </div>
-                <div className="p-2.5 rounded-xl bg-surface-2/80 border border-border/50">
+                <div className="p-2.5 rounded-lg bg-surface-2/80 border border-border/50">
                   <p className="text-xs font-bold text-foreground flex items-center justify-center gap-1.5">
                     <Sparkles className="h-3.5 w-3.5 text-success" /> Agentforce AI
                   </p>
                   <p className="text-[10px] text-muted-foreground mt-0.5">510(k) regulatory copilot</p>
                 </div>
-                <div className="p-2.5 rounded-xl bg-surface-2/80 border border-border/50">
+                <div className="p-2.5 rounded-lg bg-surface-2/80 border border-border/50">
                   <p className="text-xs font-bold text-foreground flex items-center justify-center gap-1.5">
                     <ShieldCheck className="h-3.5 w-3.5 text-chart-4" /> Vetted LP OS
                   </p>
