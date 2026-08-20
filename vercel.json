@@ -2,6 +2,16 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "buildCommand": "npm run build",
   "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/assets/(.*)",
+      "destination": "/assets/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/__server"
+    }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",
@@ -14,4 +24,3 @@
     }
   ]
 }
-
