@@ -13,13 +13,13 @@ const ThemeContext = createContext<ThemeContextValue | null>(null);
 const STORAGE_KEY = "igvp-theme";
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>("dark");
+  const [theme, setThemeState] = useState<Theme>("light");
 
   useEffect(() => {
     const stored = (typeof window !== "undefined" &&
       localStorage.getItem(STORAGE_KEY)) as Theme | null;
     if (stored === "light" || stored === "dark") setThemeState(stored);
-    else setThemeState("dark");
+    else setThemeState("light");
   }, []);
 
   useEffect(() => {
