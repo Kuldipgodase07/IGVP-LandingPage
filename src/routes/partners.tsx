@@ -322,24 +322,28 @@ function PartnersPersonaPage() {
             name: "Dr. Arthur Pendelton",
             role: "VP Research · Stanford Health Innovation",
             metric: "3 PATENTS LICENSED",
+            avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
           },
           {
             quote: "Our health system onboarded 4 clinical trial cohorts through IGVP's pre-diligenced founder channel with IRB approvals completed in under 30 days.",
             name: "Dr. Jonathan Roy",
             role: "Director of Clinical Trials · Mass General",
             metric: "4 CLINICAL TRIALS",
+            avatar: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=150&auto=format&fit=crop&q=80",
           },
           {
             quote: "The cross-border IRB and CDSCO/FDA clearance desk allowed our academic spinout to launch dual trials in Boston and Hyderabad simultaneously.",
             name: "Prof. Sunita Reddy",
             role: "Head of Bio-Design · IIT BioLab",
             metric: "DUAL IRB CLEARANCE",
+            avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80",
           },
           {
             quote: "IGVP provides our faculty founders with direct capital market access and venture partner mentorship, increasing spinout survival rates.",
             name: "Clara Vance",
             role: "Tech Transfer Officer · Johns Hopkins TTO",
             metric: "92% SPINOUT SURVIVAL",
+            avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80",
           },
         ]}
       />

@@ -404,24 +404,28 @@ function FoundersPersonaPage() {
             name: "Dr. Priya Ravindran",
             role: "Founder & CEO · NeuroGen Bio",
             metric: "$14M SERIES A",
+            avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80",
           },
           {
             quote: "The only place where I could pitch to a Kaiser CMO on Monday and an a16z partner on Wednesday — in one workspace.",
             name: "Marcus Okafor, MD",
             role: "Co-founder · Cardia Health",
             metric: "3 HOSPITAL LOIS",
+            avatar: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=150&auto=format&fit=crop&q=80",
           },
           {
             quote: "We gained direct access to FDA regulatory advisors on IGVP who helped us navigate 510(k) clearance in record time.",
             name: "Dr. Alex Chen",
             role: "Founder & CTO · PulseMed Devices",
             metric: "FDA 510(K) CLEARED",
+            avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
           },
           {
             quote: "Using the Delaware flip package and legal office hours on IGVP, we structured cross-border entity flipped and secured $2.5M in seed SAFE checks.",
             name: "Elena Vasquez",
             role: "CEO · Omics Analytics",
             metric: "$2.5M SEED SAFE",
+            avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80",
           },
         ]}
       />

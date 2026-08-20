@@ -323,24 +323,28 @@ function ServiceProvidersPersonaPage() {
             name: "Elena Vance, Esq.",
             role: "Partner · HealthTech Legal Group",
             metric: "15 NEW CLIENTS",
+            avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80",
           },
           {
             quote: "We published our FDA Pre-Sub guidance in the IGVP vendor channel and signed 4 regulatory advisory retainers in our first month.",
             name: "Dr. Marcus Thorne",
             role: "Principal · MedReg Solutions",
             metric: "4 RETAINERS SIGNED",
+            avatar: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=150&auto=format&fit=crop&q=80",
           },
           {
             quote: "IGVP founders are pre-funded and ready to execute. Our CRO converted 80% of diligence leads into active clinical trial contracts.",
             name: "Sarah Jenkins",
             role: "VP Business Dev · BioTrial CRO",
             metric: "80% CONVERSION RATE",
+            avatar: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=150&auto=format&fit=crop&q=80",
           },
           {
             quote: "The internal IGVP vendor directory gave our software agency permanent placement in front of active cohort founders building AI healthtech MVPs.",
             name: "Michael Chang",
             role: "Founder · MedSoft Studio",
             metric: "PERMANENT PLACEMENT",
+            avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
           },
         ]}
       />

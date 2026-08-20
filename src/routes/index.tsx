@@ -1266,30 +1266,35 @@ function Landing() {
                       n: "Dr. Priya Ravindran",
                       t: "Founder & CEO · NeuroGen Bio",
                       m: "$14M SERIES A",
+                      a: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80",
                     },
                     {
                       q: `"The only place where I could pitch to a Kaiser CMO on Monday and an a16z partner on Wednesday — in one workspace."`,
                       n: "Marcus Okafor, MD",
                       t: "Co-founder · Cardia Health",
                       m: "3 HOSPITAL LOIS",
+                      a: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=150&auto=format&fit=crop&q=80",
                     },
                     {
                       q: `"As an investor, IGVP deal flow is pre-vetted, pre-diligenced and pre-clinical-validated. Our conversion tripled."`,
                       n: "Elena Kowalski",
                       t: "Partner · Emerald Health Ventures",
                       m: "12 INVESTMENTS",
+                      a: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80",
                     },
                     {
                       q: `"We gained unparalleled access to clinical advisors who helped us navigate FDA hurdles in record time."`,
                       n: "Sarah Jenkins",
                       t: "CTO · MedTech Solutions",
                       m: "FDA CLEARED",
+                      a: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=150&auto=format&fit=crop&q=80",
                     },
                     {
                       q: `"The platform is our source of truth for all LP communications. It's transformed how we raise and deploy capital."`,
                       n: "David Chen",
                       t: "Managing Director · Nexus Capital",
                       m: "FUND II CLOSED",
+                      a: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
                     },
                   ].map((story, i) => (
                     <div
@@ -1308,9 +1313,11 @@ function Landing() {
                       <div className="relative z-10">
                         <div className="flex flex-col xl:flex-row xl:justify-between xl:items-end gap-4">
                           <div className="flex items-center gap-4">
-                            <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-extrabold text-lg border border-primary/20 shadow-inner shrink-0 group-hover:scale-110 transition-transform duration-500">
-                              {story.n.charAt(0)}
-                            </div>
+                            <img
+                              src={story.a}
+                              alt={story.n}
+                              className="h-12 w-12 rounded-full object-cover border-2 border-primary/30 shadow-md shrink-0 group-hover:scale-110 transition-transform duration-500"
+                            />
                             <div>
                               <p className="text-foreground font-bold text-base">{story.n}</p>
                               <p className="text-xs text-foreground/60 mt-0.5 font-medium">

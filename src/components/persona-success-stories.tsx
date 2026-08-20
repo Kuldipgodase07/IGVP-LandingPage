@@ -5,6 +5,7 @@ export interface SuccessStory {
   name: string;
   role: string;
   metric: string;
+  avatar?: string;
   avatarBg?: string;
 }
 
@@ -58,9 +59,17 @@ export function PersonaSuccessStories({
                     <div className="relative z-10 pt-4 border-t border-border/50">
                       <div className="flex items-center justify-between gap-4">
                         <div className="flex items-center gap-3.5">
-                          <div className={`h-11 w-11 rounded-full ${story.avatarBg || "bg-primary/10 text-primary"} flex items-center justify-center font-black text-base border border-primary/20 shadow-inner shrink-0 group-hover:scale-110 transition-transform duration-500`}>
-                            {story.name.charAt(0)}
-                          </div>
+                          {story.avatar ? (
+                            <img
+                              src={story.avatar}
+                              alt={story.name}
+                              className="h-11 w-11 rounded-full object-cover border-2 border-primary/30 shadow-md shrink-0 group-hover:scale-110 transition-transform duration-500"
+                            />
+                          ) : (
+                            <div className={`h-11 w-11 rounded-full ${story.avatarBg || "bg-primary/10 text-primary"} flex items-center justify-center font-black text-base border border-primary/20 shadow-inner shrink-0 group-hover:scale-110 transition-transform duration-500`}>
+                              {story.name.charAt(0)}
+                            </div>
+                          )}
                           <div className="overflow-hidden">
                             <p className="text-foreground font-bold text-sm truncate">{story.name}</p>
                             <p className="text-xs text-foreground/60 font-medium truncate mt-0.5">

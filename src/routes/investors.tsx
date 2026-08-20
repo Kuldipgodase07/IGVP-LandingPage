@@ -296,24 +296,28 @@ function InvestorsPersonaPage() {
             name: "David Chen",
             role: "Managing Director · Nexus Capital",
             metric: "FUND II CLOSED",
+            avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
           },
           {
             quote: "IGVP deal flow comes pre-backed with clinical PIs and FDA regulatory roadmaps. We co-invested in 4 Series A healthtech rounds this year.",
             name: "Victoria Sterling",
             role: "General Partner · BioHealth VC",
             metric: "4 CO-INVESTMENTS",
+            avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80",
           },
           {
             quote: "Reserving syndicate allocations through IGVP gave our family office direct access to Series A healthtech deals previously locked in Tier-1 VCs.",
             name: "Richard Cross",
             role: "Chief Investment Officer · Cross Family Office",
             metric: "$5M CAPITAL ALLOCATED",
+            avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
           },
           {
             quote: "Demo Day on IGVP connects us directly with pre-screened bio-design founders. Our due diligence timeline was slashed by 60%.",
             name: "Sophia Martinez",
             role: "Partner · Frontier Health Fund",
             metric: "60% FASTER DILIGENCE",
+            avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80",
           },
         ]}
       />

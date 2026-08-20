@@ -349,24 +349,28 @@ function RisingInvestorsPersonaPage() {
             name: "Elena Kowalski",
             role: "Syndicate Lead · Emerald Health",
             metric: "12 INVESTMENTS",
+            avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80",
           },
           {
             quote: "I wrote my first $25K healthtech check into an IGVP incubator graduate that went on to raise a $14M Series A backed by top tier VCs.",
             name: "Marcus Vance",
             role: "Angel Investor & Tech Executive",
             metric: "4.2X MOIC MARGIN",
+            avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
           },
           {
             quote: "The weekly IC memo teardowns on Discord give me institutional-grade due diligence data that would normally require a full analyst team.",
             name: "Samantha Wu",
             role: "Managing Partner · NextGen Bio Angels",
             metric: "IC MEMO ACCELERATED",
+            avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80",
           },
           {
             quote: "Co-investing with the IGVP Syndicate gave our angel network access to high-conviction FDA cleared medical device deals.",
             name: "David H. Park",
             role: "Principal · Apex Syndicate",
             metric: "$1.8M DEPLOYED",
+            avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
           },
         ]}
       />

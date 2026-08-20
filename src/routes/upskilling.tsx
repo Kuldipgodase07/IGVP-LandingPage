@@ -304,24 +304,28 @@ function UpskillingPersonaPage() {
             name: "Dr. Robert Sterling",
             role: "Chief of Surgery & Venture Advisor",
             metric: "VC BOARD MEMBER",
+            avatar: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=150&auto=format&fit=crop&q=80",
           },
           {
             quote: "The CME-accredited healthtech modules were a game-changer. I transitioned from clinical practice to Chief Medical Officer of a funded bio-tech startup.",
             name: "Dr. Elena Rostova",
             role: "Chief Medical Officer · OncoTech",
             metric: "CMO APPOINTMENT",
+            avatar: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=150&auto=format&fit=crop&q=80",
           },
           {
             quote: "IGVP gave me direct advisory placement on live due-diligence teams. I earned advisory equity in 3 portfolio companies in 6 months.",
             name: "David Kim, PharmD",
             role: "Regulatory Consultant & Advisor",
             metric: "3 ADVISORY DESKS",
+            avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
           },
           {
             quote: "The executive cohort allowed me to complete clinical valuation models on weekends without interrupting my hospital duties.",
             name: "Dr. Meera Patel",
             role: "Clinical PI & Executive Cohort Alum",
             metric: "CME ACCREDITED",
+            avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80",
           },
         ]}
       />

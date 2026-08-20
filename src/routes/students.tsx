@@ -355,24 +355,28 @@ function StudentsPersonaPage() {
             name: "Ananya Sharma",
             role: "M.S. Bioengineering · Stanford",
             metric: "PROVISIONAL PATENT",
+            avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80",
           },
           {
             quote: "As a student fellow, IGVP connected me with a VC mentor who helped us turn our university research project into a backed pre-seed startup.",
             name: "Liam Vance",
             role: "Ph.D. Candidate · MIT BioLab",
             metric: "$500K PRE-SEED",
+            avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
           },
           {
             quote: "The Discord workspace matched me with a cardiologist co-founder in 48 hours. IGVP provided the exact runway and institutional backing we needed.",
             name: "Maya Lin",
             role: "B.S. Computer Science · UC Berkeley",
             metric: "CO-FOUNDER MATCHED",
+            avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80",
           },
           {
             quote: "Winning the IGVP Student Innovation Award opened doors to 12 venture partners and guaranteed lab space for our clinical trial.",
             name: "Carlos Rodriguez",
             role: "Bio-Design Fellow · Harvard Medical",
             metric: "DEMO DAY WINNER",
+            avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
           },
         ]}
       />
