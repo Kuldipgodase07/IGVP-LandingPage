@@ -1,7 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "buildCommand": "npm run build",
-  "outputDirectory": ".output/public",
   "cleanUrls": true,
   "headers": [
     {
@@ -13,11 +12,6 @@
         }
       ]
     }
-  ],
-  "rewrites": [
-    {
-      "source": "/((?!assets/|.*\\.(?:css|js|png|jpg|jpeg|gif|svg|ico|json|woff2?|ttf|eot)).*)",
-      "destination": "/index.html"
-    }
   ]
 }
+
