@@ -616,43 +616,119 @@ function Landing() {
 
       {/* Zig-Zag Features */}
 
-      {/* Feature 1: Image Left, Text Right */}
+      {/* Zig-Zag Features */}
+
+      {/* Feature 1: STEM Learning Portal */}
       <section className="py-20 md:py-32 overflow-hidden bg-background">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+            {/* Left Column: Tilted Dual-Layer Visual Card */}
             <div className="w-full lg:w-1/2 relative">
-              <div className="absolute inset-0 bg-primary/5 rounded-3xl transform -rotate-3 scale-105" />
-              <div className="relative bg-card border border-border shadow-2xl rounded-3xl p-8 aspect-[4/3] flex flex-col items-center justify-center text-center">
-                <Brain className="h-24 w-24 text-primary opacity-20 mb-6" />
-                <h3 className="text-2xl font-bold text-foreground mb-2">STEM Learning Portal</h3>
-                <div className="w-full max-w-xs space-y-3 mt-4">
-                  <div className="h-3 w-full bg-slate-100 dark:bg-slate-800 rounded" />
-                  <div className="h-3 w-5/6 bg-slate-100 dark:bg-slate-800 rounded mx-auto" />
+              {/* Outer Tilted Backdrop Card */}
+              <div className="absolute inset-0 bg-primary/15 rounded-3xl transform -rotate-3 scale-105 pointer-events-none" />
+              
+              {/* Inner Main Card Container */}
+              <div className="relative bg-card border border-border shadow-2xl rounded-3xl p-6 sm:p-8 space-y-6 overflow-hidden">
+                {/* Visual Card Header */}
+                <div className="flex items-center justify-between border-b border-border/60 pb-4">
+                  <div className="flex items-center gap-3">
+                    <div className="h-10 w-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center font-bold border border-primary/20">
+                      <GraduationCap className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <h3 className="font-extrabold text-sm text-foreground">IGVP STEM Learning Portal</h3>
+                      <p className="text-[11px] text-muted-foreground">CME Accredited · Live Cohort Workspace</p>
+                    </div>
+                  </div>
+                  <span className="bg-success/10 text-success border border-success/20 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">
+                    ● Active Session
+                  </span>
+                </div>
+
+                {/* Active Masterclass Module Card */}
+                <div className="bg-surface-2/80 rounded-2xl border border-border/60 p-4 sm:p-5 space-y-3">
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="font-bold text-primary bg-primary/10 border border-primary/20 px-2.5 py-0.5 rounded-md">
+                      Module 04 of 08
+                    </span>
+                    <span className="text-muted-foreground font-medium">78% Completed</span>
+                  </div>
+                  <h4 className="font-bold text-sm sm:text-base text-foreground">
+                    Bio-Design & FDA 510(k) Clearance Masterclass
+                  </h4>
+                  <div className="w-full bg-border/60 h-2 rounded-full overflow-hidden">
+                    <div className="bg-gradient-to-r from-primary to-sky-400 h-full w-[78%] rounded-full shadow-sm" />
+                  </div>
+                </div>
+
+                {/* AI Tutor Chatbot Snippet */}
+                <div className="space-y-3">
+                  <div className="flex items-start gap-2.5 text-xs">
+                    <div className="h-6 w-6 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">
+                      MD
+                    </div>
+                    <div className="bg-surface border border-border p-3 rounded-2xl rounded-tl-xs text-foreground/90 max-w-[88%] shadow-xs">
+                      What is the FDA PCCP protocol for AI diagnostic software?
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-2.5 text-xs flex-row-reverse">
+                    <div className="h-6 w-6 rounded-full bg-sky-500/20 text-sky-500 flex items-center justify-center shrink-0 mt-0.5">
+                      <Sparkles className="h-3.5 w-3.5" />
+                    </div>
+                    <div className="bg-primary/10 border border-primary/20 p-3 rounded-2xl rounded-tr-xs text-foreground max-w-[90%] shadow-xs space-y-1">
+                      <p className="font-bold text-primary text-[11px]">IGVP AI Tutor Response:</p>
+                      <p className="text-foreground/80 leading-relaxed">
+                        Predetermined Change Control Plans (PCCP) allow AI models to update post-clearance without new 510(k) filings.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Footer Metrics Row */}
+                <div className="grid grid-cols-3 gap-2 pt-2 border-t border-border/60 text-center">
+                  <div className="bg-surface-2 p-2.5 rounded-xl border border-border/50">
+                    <p className="text-xs font-extrabold text-foreground">14 Credits</p>
+                    <p className="text-[10px] text-muted-foreground">CME Accredited</p>
+                  </div>
+                  <div className="bg-surface-2 p-2.5 rounded-xl border border-border/50">
+                    <p className="text-xs font-extrabold text-foreground">4.9 / 5.0 ★</p>
+                    <p className="text-[10px] text-muted-foreground">Learner Rating</p>
+                  </div>
+                  <div className="bg-surface-2 p-2.5 rounded-xl border border-border/50">
+                    <p className="text-xs font-extrabold text-primary">1,240+</p>
+                    <p className="text-[10px] text-muted-foreground">Clinicians Enrolled</p>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="w-full lg:w-1/2">
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground mb-6 leading-tight">
-                STEM & Clinical Education
+
+            {/* Right Column: Copy & Actions */}
+            <div className="w-full lg:w-1/2 space-y-6">
+              <span className="text-xs font-bold text-primary uppercase tracking-widest bg-primary/10 border border-primary/20 px-3 py-1 rounded-full">
+                Interactive Learning Architecture
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground leading-[1.15] tracking-tight">
+                STEM & Clinical Education Platform
               </h2>
-              <p className="text-lg text-foreground/70 leading-relaxed mb-8">
+              <p className="text-base sm:text-lg text-foreground/75 leading-relaxed">
                 Deliver CME-accredited tracks, cohort-based learning, and personalized AI tutors
                 designed specifically for clinicians, researchers, and technical founders scaling
                 healthcare solutions. Maximize staff impact institution-wide.
               </p>
-              <div className="flex items-center gap-4">
+              <div className="flex flex-wrap items-center gap-4 pt-2">
                 <Button
                   asChild
-                  className="h-12 px-6 rounded-md bg-primary font-bold shadow-md hover:-translate-y-0.5 transition-all"
+                  className="h-12 px-6 rounded-xl bg-primary hover:bg-primary-hover text-white font-bold shadow-lg shadow-primary/20 hover:-translate-y-0.5 transition-all"
                 >
-                  <a href="#">Watch demo</a>
+                  <a href="#">Watch Demo Platform</a>
                 </Button>
                 <Button
                   asChild
                   variant="outline"
-                  className="h-12 px-6 rounded-md border-border font-bold hover:bg-surface transition-all"
+                  className="h-12 px-6 rounded-xl border-border bg-card hover:bg-accent font-bold transition-all"
                 >
-                  <a href="#">Learn more</a>
+                  <a href="#">Explore Curriculum</a>
                 </Button>
               </div>
             </div>
@@ -660,45 +736,114 @@ function Landing() {
         </div>
       </section>
 
-      {/* Feature 2: Text Left, Image Right */}
+      {/* Feature 2: Venture Capital OS */}
       <section className="py-20 md:py-32 overflow-hidden bg-surface">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row-reverse items-center gap-16 lg:gap-24">
+          <div className="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-20">
+            {/* Right Column: Tilted Dual-Layer Visual Card */}
             <div className="w-full lg:w-1/2 relative">
-              <div className="absolute inset-0 bg-chart-4/10 rounded-3xl transform rotate-3 scale-105" />
-              <div className="relative bg-card border border-border shadow-2xl rounded-3xl p-8 aspect-[4/3] flex flex-col items-center justify-center text-center">
-                <BarChart3 className="h-24 w-24 text-chart-4 opacity-20 mb-6" />
-                <h3 className="text-2xl font-bold text-foreground mb-2">Venture Analytics</h3>
-                <div className="flex gap-4 w-full max-w-xs mt-4 items-end justify-center h-24">
-                  <div className="w-8 bg-chart-4/40 rounded-t h-12" />
-                  <div className="w-8 bg-chart-4/60 rounded-t h-16" />
-                  <div className="w-8 bg-chart-4/80 rounded-t h-20" />
-                  <div className="w-8 bg-chart-4 rounded-t h-24" />
+              {/* Outer Tilted Backdrop Card */}
+              <div className="absolute inset-0 bg-chart-4/15 rounded-3xl transform rotate-3 scale-105 pointer-events-none" />
+              
+              {/* Inner Main Card Container */}
+              <div className="relative bg-card border border-border shadow-2xl rounded-3xl p-6 sm:p-8 space-y-6 overflow-hidden">
+                {/* Visual Card Header */}
+                <div className="flex items-center justify-between border-b border-border/60 pb-4">
+                  <div className="flex items-center gap-3">
+                    <div className="h-10 w-10 rounded-xl bg-chart-4/10 text-chart-4 flex items-center justify-center font-bold border border-chart-4/20">
+                      <BarChart3 className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <h3 className="font-extrabold text-sm text-foreground">IGVP Venture Capital OS</h3>
+                      <p className="text-[11px] text-muted-foreground">Portfolio Intelligence & Deal Room</p>
+                    </div>
+                  </div>
+                  <span className="bg-chart-4/10 text-chart-4 border border-chart-4/20 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">
+                    $42M Deployed
+                  </span>
+                </div>
+
+                {/* Animated Trend Chart Visual */}
+                <div className="bg-surface-2/80 rounded-2xl border border-border/60 p-4 space-y-3">
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="font-bold text-foreground">Quarterly Sourcing Velocity</span>
+                    <span className="font-extrabold text-success">+34% MoM Growth</span>
+                  </div>
+                  <div className="flex items-end justify-between gap-3 h-28 pt-4 pb-1 px-2 border-b border-border/40">
+                    <div className="w-full bg-chart-4/20 rounded-t-lg h-[40%] flex items-center justify-center text-[10px] font-bold text-chart-4">Q1</div>
+                    <div className="w-full bg-chart-4/40 rounded-t-lg h-[60%] flex items-center justify-center text-[10px] font-bold text-chart-4">Q2</div>
+                    <div className="w-full bg-chart-4/70 rounded-t-lg h-[80%] flex items-center justify-center text-[10px] font-bold text-white">Q3</div>
+                    <div className="w-full bg-chart-4 rounded-t-lg h-[100%] flex items-center justify-center text-[10px] font-bold text-white shadow-md">Q4</div>
+                  </div>
+                </div>
+
+                {/* Live Deal Pipeline Items */}
+                <div className="space-y-2">
+                  <div className="p-3 rounded-xl border border-border/60 bg-surface flex items-center justify-between shadow-xs">
+                    <div className="flex items-center gap-3">
+                      <div className="h-8 w-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center font-extrabold text-xs border border-primary/20">
+                        NG
+                      </div>
+                      <div>
+                        <p className="text-xs font-bold text-foreground">NeuroGen Bio Inc.</p>
+                        <p className="text-[10px] text-muted-foreground">Series A · $14.0M Round</p>
+                      </div>
+                    </div>
+                    <span className="text-[10px] font-bold bg-success/10 text-success border border-success/20 px-2.5 py-1 rounded-md">
+                      Diligence Cleared
+                    </span>
+                  </div>
+
+                  <div className="p-3 rounded-xl border border-border/60 bg-surface flex items-center justify-between shadow-xs">
+                    <div className="flex items-center gap-3">
+                      <div className="h-8 w-8 rounded-lg bg-chart-4/10 text-chart-4 flex items-center justify-center font-extrabold text-xs border border-chart-4/20">
+                        CA
+                      </div>
+                      <div>
+                        <p className="text-xs font-bold text-foreground">Cardia AI Diagnostics</p>
+                        <p className="text-[10px] text-muted-foreground">Seed Sprint · $3.5M Round</p>
+                      </div>
+                    </div>
+                    <span className="text-[10px] font-bold bg-primary/10 text-primary border border-primary/20 px-2.5 py-1 rounded-md">
+                      IC Memo Ready
+                    </span>
+                  </div>
+                </div>
+
+                {/* Security Footer */}
+                <div className="flex items-center justify-between pt-2 border-t border-border/60 text-[11px] text-muted-foreground font-medium">
+                  <span className="flex items-center gap-1.5"><ShieldCheck className="h-3.5 w-3.5 text-success" /> 256-Bit Encrypted LP Portal</span>
+                  <span className="font-bold text-foreground">12 Term Sheets Issued</span>
                 </div>
               </div>
             </div>
-            <div className="w-full lg:w-1/2">
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground mb-6 leading-tight">
-                Venture Capital OS
+
+            {/* Left Column: Copy & Actions */}
+            <div className="w-full lg:w-1/2 space-y-6">
+              <span className="text-xs font-bold text-chart-4 uppercase tracking-widest bg-chart-4/10 border border-chart-4/20 px-3 py-1 rounded-full">
+                Venture Capital Infrastructure
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground leading-[1.15] tracking-tight">
+                Venture Capital Operating System
               </h2>
-              <p className="text-lg text-foreground/70 leading-relaxed mb-8">
+              <p className="text-base sm:text-lg text-foreground/75 leading-relaxed">
                 Manage your entire healthcare portfolio in one place. Automate deal flow tracking,
                 streamline investment committee memos, and generate real-time LP reporting
                 seamlessly integrated with your CRM.
               </p>
-              <div className="flex items-center gap-4">
+              <div className="flex flex-wrap items-center gap-4 pt-2">
                 <Button
                   asChild
-                  className="h-12 px-6 rounded-md bg-primary font-bold shadow-md hover:-translate-y-0.5 transition-all"
+                  className="h-12 px-6 rounded-xl bg-chart-4 hover:bg-chart-4/90 text-white font-bold shadow-lg shadow-chart-4/20 hover:-translate-y-0.5 transition-all"
                 >
-                  <a href="#">Watch demo</a>
+                  <a href="#">Watch Platform Demo</a>
                 </Button>
                 <Button
                   asChild
                   variant="outline"
-                  className="h-12 px-6 rounded-md border-border font-bold hover:bg-background transition-all"
+                  className="h-12 px-6 rounded-xl border-border bg-card hover:bg-accent font-bold transition-all"
                 >
-                  <a href="#">Get the datasheet</a>
+                  <a href="#">Get VC Datasheet</a>
                 </Button>
               </div>
             </div>
@@ -706,42 +851,109 @@ function Landing() {
         </div>
       </section>
 
-      {/* Feature 3: Image Left, Text Right */}
+      {/* Feature 3: Agentforce AI Copilot Suite */}
       <section className="py-20 md:py-32 overflow-hidden bg-background">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+            {/* Left Column: Tilted Dual-Layer Visual Card */}
             <div className="w-full lg:w-1/2 relative">
-              <div className="absolute inset-0 bg-success/5 rounded-3xl transform -rotate-2 scale-105" />
-              <div className="relative bg-card border border-border shadow-2xl rounded-3xl p-8 aspect-[4/3] flex flex-col items-center justify-center text-center">
-                <Sparkles className="h-24 w-24 text-success opacity-20 mb-6" />
-                <h3 className="text-2xl font-bold text-foreground mb-2">Agentforce AI</h3>
-                <div className="mt-6 flex flex-col gap-3 w-full max-w-xs">
-                  <div className="bg-success/10 border border-success/20 p-3 rounded-lg text-left shadow-sm">
-                    <div className="h-2 w-3/4 bg-success/40 rounded mb-2" />
-                    <div className="h-2 w-1/2 bg-success/40 rounded" />
+              {/* Outer Tilted Backdrop Card */}
+              <div className="absolute inset-0 bg-success/15 rounded-3xl transform -rotate-3 scale-105 pointer-events-none" />
+              
+              {/* Inner Main Card Container */}
+              <div className="relative bg-card border border-border shadow-2xl rounded-3xl p-6 sm:p-8 space-y-6 overflow-hidden">
+                {/* Visual Card Header */}
+                <div className="flex items-center justify-between border-b border-border/60 pb-4">
+                  <div className="flex items-center gap-3">
+                    <div className="h-10 w-10 rounded-xl bg-success/10 text-success flex items-center justify-center font-bold border border-success/20">
+                      <Sparkles className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <h3 className="font-extrabold text-sm text-foreground">Agentforce™ Copilot Suite</h3>
+                      <p className="text-[11px] text-muted-foreground">Autonomous Healthcare Venture Agents</p>
+                    </div>
                   </div>
-                  <div className="bg-surface border border-border p-3 rounded-lg text-left shadow-sm ml-8">
-                    <div className="h-2 w-full bg-slate-200 dark:bg-slate-700 rounded mb-2" />
-                    <div className="h-2 w-5/6 bg-slate-200 dark:bg-slate-700 rounded" />
+                  <span className="bg-success/10 text-success border border-success/20 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">
+                    3 Agents Active 24/7
+                  </span>
+                </div>
+
+                {/* Agent Activity Cards Stream */}
+                <div className="space-y-3">
+                  <div className="p-3.5 rounded-2xl border border-success/30 bg-success/5 space-y-1.5 shadow-xs">
+                    <div className="flex items-center justify-between text-xs font-bold">
+                      <span className="text-foreground flex items-center gap-1.5">
+                        <ShieldCheck className="h-4 w-4 text-success" /> FDA Regulatory Agent
+                      </span>
+                      <span className="text-[10px] bg-success/20 text-success px-2 py-0.5 rounded">
+                        98.4% Confidence
+                      </span>
+                    </div>
+                    <p className="text-xs text-foreground/80 leading-snug">
+                      Automated 510(k) Pre-Submission draft generated for <span className="font-bold text-foreground">Cardia-AI</span>.
+                    </p>
                   </div>
+
+                  <div className="p-3.5 rounded-2xl border border-border/60 bg-surface space-y-1.5 shadow-xs">
+                    <div className="flex items-center justify-between text-xs font-bold">
+                      <span className="text-foreground flex items-center gap-1.5">
+                        <TrendingUp className="h-4 w-4 text-primary" /> Pitch & Memo Coach
+                      </span>
+                      <span className="text-[10px] bg-primary/10 text-primary px-2 py-0.5 rounded">
+                        IC Memo Prepared
+                      </span>
+                    </div>
+                    <p className="text-xs text-foreground/80 leading-snug">
+                      Investment memo risk score evaluated: <span className="font-bold text-success">0.12 (Low Risk)</span>.
+                    </p>
+                  </div>
+
+                  <div className="p-3.5 rounded-2xl border border-border/60 bg-surface space-y-1.5 shadow-xs">
+                    <div className="flex items-center justify-between text-xs font-bold">
+                      <span className="text-foreground flex items-center gap-1.5">
+                        <Users className="h-4 w-4 text-sky-500" /> Co-Founder Matcher
+                      </span>
+                      <span className="text-[10px] bg-sky-500/10 text-sky-500 px-2 py-0.5 rounded">
+                        Matched in 48h
+                      </span>
+                    </div>
+                    <p className="text-xs text-foreground/80 leading-snug">
+                      Paired Johns Hopkins Cardiologist with Stanford BME Fellow for Sprint #08.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Copilot Prompt Input Mockup */}
+                <div className="p-3 rounded-xl border border-border/60 bg-surface-2 flex items-center justify-between text-xs">
+                  <span className="text-muted-foreground font-mono text-[11px] truncate">
+                    ask_copilot("Draft FDA pre-sub for Class II SaMD...")
+                  </span>
+                  <button className="bg-success text-white font-bold px-3 py-1.5 rounded-lg text-[11px] flex items-center gap-1 shrink-0">
+                    Run <Sparkles className="h-3 w-3" />
+                  </button>
                 </div>
               </div>
             </div>
-            <div className="w-full lg:w-1/2">
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground mb-6 leading-tight">
+
+            {/* Right Column: Copy & Actions */}
+            <div className="w-full lg:w-1/2 space-y-6">
+              <span className="text-xs font-bold text-success uppercase tracking-widest bg-success/10 border border-success/20 px-3 py-1 rounded-full">
+                AI Copilot Architecture
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground leading-[1.15] tracking-tight">
                 Agentforce: AI Copilot Suite
               </h2>
-              <p className="text-lg text-foreground/70 leading-relaxed mb-8">
+              <p className="text-base sm:text-lg text-foreground/75 leading-relaxed">
                 Engage prospective founders and deliver instant, personalized support. Use our FDA
                 regulatory assistant, pitch coach, grant writer, and intelligent founder-matching
                 agents to scale your operations 24/7.
               </p>
-              <div className="flex items-center gap-4">
+              <div className="flex flex-wrap items-center gap-4 pt-2">
                 <Button
                   asChild
-                  className="h-12 px-6 rounded-md bg-primary font-bold shadow-md hover:-translate-y-0.5 transition-all"
+                  className="h-12 px-6 rounded-xl bg-success hover:bg-success/90 text-white font-bold shadow-lg shadow-success/20 hover:-translate-y-0.5 transition-all"
                 >
-                  <a href="#">Explore AI</a>
+                  <a href="#">Explore AI Copilot</a>
                 </Button>
                 <Button
                   asChild
