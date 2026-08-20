@@ -122,7 +122,7 @@ function Landing() {
             {/* Text Content */}
             <div className="max-w-2xl">
               <div className="mb-4">
-                <span className="text-xl font-['Sora'] font-semibold italic text-foreground">
+                <span className="text-xl sm:text-[22px] font-['Fraunces'] font-bold italic text-foreground tracking-tight">
                   From Lab to Ledger
                 </span>
               </div>
