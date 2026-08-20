@@ -140,7 +140,7 @@ function Landing() {
                   asChild
                   className="w-full sm:w-auto h-14 px-8 rounded-md bg-primary hover:bg-primary-hover text-base font-bold shadow-lg hover:-translate-y-0.5 transition-all"
                 >
-                  <Link to="/login">Watch demo</Link>
+                  <a href="#video-demo">Watch Video Demo</a>
                 </Button>
                 <Button
                   size="lg"
@@ -443,6 +443,112 @@ function Landing() {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Product Video Demo Walkthrough Section */}
+      <section id="video-demo" className="py-20 md:py-28 bg-surface-2/60 border-b border-border/60 relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-primary/10 rounded-full blur-[140px] pointer-events-none z-0" />
+
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* Section Header */}
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <span className="inline-flex items-center gap-2 bg-primary/10 text-primary border border-primary/20 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider mb-4 shadow-xs">
+              <Play className="h-3.5 w-3.5 fill-primary" /> Live Platform Video Walkthrough
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight leading-[1.15] mb-4">
+              Experience the Healthcare Venture Operating System
+            </h2>
+            <p className="text-base sm:text-lg text-foreground/75 leading-relaxed">
+              Watch how IGVP seamlessly unifies STEM education, clinical trial acceleration, and venture capital portfolio management on a single enterprise platform.
+            </p>
+          </div>
+
+          {/* Apple-Style Cinema Video Player Container */}
+          <div className="relative mx-auto max-w-5xl">
+            {/* Ambient Background Glow */}
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/30 via-sky-500/20 to-chart-4/30 rounded-[2.5rem] blur-2xl opacity-60 scale-105 pointer-events-none" />
+
+            {/* Main Window Frame */}
+            <div className="relative bg-card/95 backdrop-blur-xl border border-border/80 rounded-[2rem] shadow-[0_25px_60px_rgba(8,24,38,0.2)] overflow-hidden">
+              {/* Window Header */}
+              <div className="bg-surface/90 border-b border-border px-5 py-3 flex items-center justify-between gap-4">
+                <div className="flex items-center gap-2">
+                  <div className="h-3 w-3 rounded-full bg-[#ff5f56]" />
+                  <div className="h-3 w-3 rounded-full bg-[#ffbd2e]" />
+                  <div className="h-3 w-3 rounded-full bg-[#27c93f]" />
+                </div>
+                <div className="bg-background/80 border border-border/60 rounded-lg px-4 py-1 flex items-center justify-center gap-2 text-xs text-muted-foreground font-mono max-w-sm w-full truncate shadow-xs">
+                  <Lock className="h-3 w-3 text-success shrink-0" />
+                  <span className="truncate">console.igvp.health/platform-demo.mp4</span>
+                </div>
+                <div className="flex items-center gap-2 text-[11px] font-bold text-success bg-success/10 border border-success/20 px-2.5 py-0.5 rounded-full">
+                  ● 1080p HD
+                </div>
+              </div>
+
+              {/* Video Player */}
+              <div className="relative aspect-[16/9] w-full bg-black/90 flex items-center justify-center overflow-hidden">
+                <video
+                  src="/LandingPage_video.mp4"
+                  className="w-full h-full object-cover"
+                  controls
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  poster="/hero_lab.jpg"
+                />
+              </div>
+
+              {/* Video Interactive Highlights Footer */}
+              <div className="bg-surface/90 border-t border-border p-4 sm:p-6 grid grid-cols-2 md:grid-cols-4 gap-3 text-center">
+                <div className="p-2.5 rounded-xl bg-surface-2/80 border border-border/50">
+                  <p className="text-xs font-bold text-foreground flex items-center justify-center gap-1.5">
+                    <Zap className="h-3.5 w-3.5 text-primary" /> Live Sourcing
+                  </p>
+                  <p className="text-[10px] text-muted-foreground mt-0.5">Real-time venture deal flow</p>
+                </div>
+                <div className="p-2.5 rounded-xl bg-surface-2/80 border border-border/50">
+                  <p className="text-xs font-bold text-foreground flex items-center justify-center gap-1.5">
+                    <GraduationCap className="h-3.5 w-3.5 text-sky-500" /> STEM Cloud
+                  </p>
+                  <p className="text-[10px] text-muted-foreground mt-0.5">CME-accredited learning</p>
+                </div>
+                <div className="p-2.5 rounded-xl bg-surface-2/80 border border-border/50">
+                  <p className="text-xs font-bold text-foreground flex items-center justify-center gap-1.5">
+                    <Sparkles className="h-3.5 w-3.5 text-success" /> Agentforce AI
+                  </p>
+                  <p className="text-[10px] text-muted-foreground mt-0.5">510(k) regulatory copilot</p>
+                </div>
+                <div className="p-2.5 rounded-xl bg-surface-2/80 border border-border/50">
+                  <p className="text-xs font-bold text-foreground flex items-center justify-center gap-1.5">
+                    <ShieldCheck className="h-3.5 w-3.5 text-chart-4" /> Vetted LP OS
+                  </p>
+                  <p className="text-[10px] text-muted-foreground mt-0.5">Automated LP reporting</p>
+                </div>
+              </div>
+            </div>
+
+            {/* CTA under video */}
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-4 text-center">
+              <Button
+                asChild
+                size="lg"
+                className="h-13 px-8 rounded-xl bg-primary hover:bg-primary-hover text-white font-bold text-base shadow-xl shadow-primary/25 hover:-translate-y-0.5 transition-all"
+              >
+                <Link to="/login">Schedule Enterprise Demo</Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="h-13 px-8 rounded-xl border-border bg-card hover:bg-accent font-bold text-base transition-all"
+              >
+                <a href="#persona-hub">Explore Platform Tracks</a>
+              </Button>
             </div>
           </div>
         </div>
