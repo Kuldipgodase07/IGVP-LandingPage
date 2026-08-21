@@ -16,10 +16,9 @@ export function PersonaHeader({ currentTrack }: PersonaHeaderProps) {
     { label: "Students", path: "/students", tag: "STEM Sprints" },
     { label: "Founders", path: "/founders", tag: "Delaware Flip" },
     { label: "Upskilling", path: "/upskilling", tag: "Fellowship" },
-    { label: "Rising Investors", path: "/rising-investors", tag: "Angel DD" },
     { label: "Partners", path: "/partners", tag: "Clinical Sites" },
-    { label: "Providers", path: "/service-providers", tag: "Vetted Vendors" },
     { label: "Investors", path: "/investors", tag: "Syndicate" },
+    { label: "Books", path: "/books/the-venture-framework-for-stem", tag: "New Book" },
   ];
 
   return (
@@ -104,15 +103,6 @@ export function PersonaHeader({ currentTrack }: PersonaHeaderProps) {
             <Link to="/">
               <ArrowLeft className="h-3.5 w-3.5" />
               <span className="hidden sm:inline">Main OS Hub</span>
-            </Link>
-          </Button>
-          <Button
-            asChild
-            className="h-10 px-4 sm:px-5 rounded-full bg-primary hover:bg-primary-hover text-white text-xs font-bold shadow-md transition-all hover:shadow-lg hover:-translate-y-0.5"
-          >
-            <Link to="/login">
-              <Sparkles className="h-3.5 w-3.5 mr-1 hidden sm:inline" />
-              Sign In
             </Link>
           </Button>
         </div>

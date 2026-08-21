@@ -18,6 +18,8 @@ import { Route as LoginRouteImport } from './routes/login'
 import { Route as InvestorsRouteImport } from './routes/investors'
 import { Route as FoundersRouteImport } from './routes/founders'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BooksIndexRouteImport } from './routes/books.index'
+import { Route as BooksTheVentureFrameworkForStemRouteImport } from './routes/books.the-venture-framework-for-stem'
 
 const UpskillingRoute = UpskillingRouteImport.update({
   id: '/upskilling',
@@ -64,6 +66,17 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BooksIndexRoute = BooksIndexRouteImport.update({
+  id: '/books/',
+  path: '/books/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BooksTheVentureFrameworkForStemRoute =
+  BooksTheVentureFrameworkForStemRouteImport.update({
+    id: '/books/the-venture-framework-for-stem',
+    path: '/books/the-venture-framework-for-stem',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -75,6 +88,8 @@ export interface FileRoutesByFullPath {
   '/service-providers': typeof ServiceProvidersRoute
   '/students': typeof StudentsRoute
   '/upskilling': typeof UpskillingRoute
+  '/books/the-venture-framework-for-stem': typeof BooksTheVentureFrameworkForStemRoute
+  '/books/': typeof BooksIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -86,6 +101,8 @@ export interface FileRoutesByTo {
   '/service-providers': typeof ServiceProvidersRoute
   '/students': typeof StudentsRoute
   '/upskilling': typeof UpskillingRoute
+  '/books/the-venture-framework-for-stem': typeof BooksTheVentureFrameworkForStemRoute
+  '/books': typeof BooksIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -98,6 +115,8 @@ export interface FileRoutesById {
   '/service-providers': typeof ServiceProvidersRoute
   '/students': typeof StudentsRoute
   '/upskilling': typeof UpskillingRoute
+  '/books/the-venture-framework-for-stem': typeof BooksTheVentureFrameworkForStemRoute
+  '/books/': typeof BooksIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -111,6 +130,8 @@ export interface FileRouteTypes {
     | '/service-providers'
     | '/students'
     | '/upskilling'
+    | '/books/the-venture-framework-for-stem'
+    | '/books/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -122,6 +143,8 @@ export interface FileRouteTypes {
     | '/service-providers'
     | '/students'
     | '/upskilling'
+    | '/books/the-venture-framework-for-stem'
+    | '/books'
   id:
     | '__root__'
     | '/'
@@ -133,6 +156,8 @@ export interface FileRouteTypes {
     | '/service-providers'
     | '/students'
     | '/upskilling'
+    | '/books/the-venture-framework-for-stem'
+    | '/books/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -145,6 +170,8 @@ export interface RootRouteChildren {
   ServiceProvidersRoute: typeof ServiceProvidersRoute
   StudentsRoute: typeof StudentsRoute
   UpskillingRoute: typeof UpskillingRoute
+  BooksTheVentureFrameworkForStemRoute: typeof BooksTheVentureFrameworkForStemRoute
+  BooksIndexRoute: typeof BooksIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -212,6 +239,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/books/': {
+      id: '/books/'
+      path: '/books'
+      fullPath: '/books/'
+      preLoaderRoute: typeof BooksIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/books/the-venture-framework-for-stem': {
+      id: '/books/the-venture-framework-for-stem'
+      path: '/books/the-venture-framework-for-stem'
+      fullPath: '/books/the-venture-framework-for-stem'
+      preLoaderRoute: typeof BooksTheVentureFrameworkForStemRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -225,6 +266,8 @@ const rootRouteChildren: RootRouteChildren = {
   ServiceProvidersRoute: ServiceProvidersRoute,
   StudentsRoute: StudentsRoute,
   UpskillingRoute: UpskillingRoute,
+  BooksTheVentureFrameworkForStemRoute: BooksTheVentureFrameworkForStemRoute,
+  BooksIndexRoute: BooksIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

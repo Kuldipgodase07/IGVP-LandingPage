@@ -323,7 +323,7 @@ export function AppSidebar() {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton asChild tooltip="Settings">
-              <Link to="/dashboard">
+              <Link to="/login">
                 <Settings className="h-4 w-4" />
                 <span>Settings</span>
               </Link>
@@ -331,7 +331,7 @@ export function AppSidebar() {
           </SidebarMenuItem>
           <SidebarMenuItem>
             <SidebarMenuButton asChild tooltip="Help">
-              <Link to="/dashboard">
+              <Link to="/login">
                 <LifeBuoy className="h-4 w-4" />
                 <span>Help & Support</span>
               </Link>

@@ -64,33 +64,40 @@ function Landing() {
             <BrandLogo size="md" />
             <nav className="hidden md:flex items-center gap-7">
               {[
-                { l: "Products", h: "/" },
-                { l: "Solutions", h: "/" },
-                { l: "Events & Summits", h: "#events-section" },
-                { l: "Learning", h: "/" },
-                { l: "Support", h: "/" },
-                { l: "Company", h: "/" },
+                { l: "Programs", h: "/students", isLink: true },
+                { l: "Upskilling", h: "/upskilling", isLink: true },
+                { l: "Ecosystem", h: "/partners", isLink: true },
+                { l: "Events & Summits", h: "#events-section", isLink: false },
+                { l: "Books", h: "/books/the-venture-framework-for-stem", isLink: true, isNew: true },
               ].map((n) => (
-                <a
-                  key={n.l}
-                  href={n.h}
-                  className="text-[14px] font-semibold text-foreground/70 hover:text-foreground hover:scale-105 transition-all"
-                >
-                  {n.l}
-                </a>
+                n.isLink ? (
+                  <Link
+                    key={n.l}
+                    to={n.h}
+                    className="text-[14px] font-semibold text-foreground/80 hover:text-primary hover:scale-105 transition-all flex items-center gap-1.5"
+                  >
+                    {n.l}
+                    {n.isNew && (
+                      <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-accent text-accent-foreground font-bold">
+                        NEW
+                      </span>
+                    )}
+                  </Link>
+                ) : (
+                  <a
+                    key={n.l}
+                    href={n.h}
+                    className="text-[14px] font-semibold text-foreground/80 hover:text-primary hover:scale-105 transition-all"
+                  >
+                    {n.l}
+                  </a>
+                )
               ))}
             </nav>
           </div>
           <div className="flex items-center gap-2 sm:gap-3">
             <ThemeToggle />
             <div className="h-5 w-px bg-border hidden sm:block mx-1" />
-            <Button
-              variant="ghost"
-              asChild
-              className="hidden sm:flex h-10 rounded-full text-[14px] font-bold text-foreground/80 hover:text-primary"
-            >
-              <Link to="/login">Login</Link>
-            </Button>
             <Button
               asChild
               className="h-10 px-6 rounded-full bg-primary hover:bg-primary-hover text-[14px] font-bold shadow-md transition-all hover:shadow-lg hover:-translate-y-0.5"
