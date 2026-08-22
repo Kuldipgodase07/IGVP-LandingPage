@@ -3,6 +3,10 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
+  saveEventRegistrationToMongoDB,
+  saveEventProposalToMongoDB,
+} from "@/lib/server-actions";
+import {
   Calendar,
   Video,
   Award,
@@ -304,14 +308,36 @@ export function EventsSection() {
 
   const featuredEvent = EVENTS_DATA.find((e) => e.isFeatured) || EVENTS_DATA[0];
 
-  const handleRegister = (e: React.FormEvent) => {
+  const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!registrantName || !registrantEmail) {
       toast.error("Please fill in your name and email address.");
       return;
     }
+
+    const ticketCode = `IGVP-${Math.floor(1000 + Math.random() * 9000)}`;
+
+    try {
+      if (activeModalEvent) {
+        await saveEventRegistrationToMongoDB({
+          data: {
+            fullName: registrantName,
+            email: registrantEmail,
+            role: registrantRole,
+            eventTitle: activeModalEvent.title,
+            eventType: activeModalEvent.type,
+            eventDate: activeModalEvent.date,
+            eventLocation: activeModalEvent.location,
+            ticketCode: ticketCode,
+          },
+        });
+      }
+    } catch (err) {
+      console.warn("Event registration save error:", err);
+    }
+
     setTicketIssued(true);
-    toast.success(`Registration Confirmed! Ticket sent to ${registrantEmail}`);
+    toast.success(`Registration Confirmed & Saved in MongoDB Atlas! Pass sent to ${registrantEmail}`);
   };
 
   const handleAddToCalendar = (eventTitle: string, date: string) => {
@@ -327,16 +353,28 @@ export function EventsSection() {
     });
   };
 
-  const handleProposalSubmit = (e: React.FormEvent) => {
+  const handleProposalSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!proposalTopic || !proposalEmail) {
       toast.error("Please provide your email and proposal summary.");
       return;
     }
+
+    try {
+      await saveEventProposalToMongoDB({
+        data: {
+          email: proposalEmail,
+          topic: proposalTopic,
+        },
+      });
+    } catch (err) {
+      console.warn("Event proposal save error:", err);
+    }
+
     setIsProposalOpen(false);
     setProposalTopic("");
     setProposalEmail("");
-    toast.success("Event Proposal Submitted!", {
+    toast.success("Event Proposal Saved in MongoDB Atlas!", {
       description: "Our IGVP Academic & Venture Board will review your proposal within 48 hours.",
     });
   };

@@ -84,6 +84,8 @@ function SubmissionsExplorerPage() {
     partners: 0,
     providers: 0,
     newsletter: 0,
+    eventRegistrations: 0,
+    eventProposals: 0,
   });
 
   const [selectedItem, setSelectedItem] = useState<SubmissionItem | null>(null);
@@ -225,6 +227,37 @@ function SubmissionsExplorerPage() {
           });
         });
 
+        // 9. Event Registrations (Summits & Webinars)
+        (d.eventRegistrations || []).forEach((item: any) => {
+          allItems.push({
+            id: item._id || item.id,
+            sourceCollection: "event_registrations",
+            applicantName: item.fullName || "Summit Registrant",
+            email: item.email || "",
+            roleOrTrack: `🎟️ ${item.eventType || "Summit"} Pass`,
+            organization: item.eventTitle || "Global Healthtech Summit",
+            details: `Role: ${item.role || "Attendee"} | Location: ${item.eventLocation || "Hybrid"}`,
+            ticketNumber: item.ticketCode,
+            submittedAt: item.registeredAt || new Date().toISOString(),
+            raw: item,
+          });
+        });
+
+        // 10. Event Proposals
+        (d.eventProposals || []).forEach((item: any) => {
+          allItems.push({
+            id: item._id || item.id,
+            sourceCollection: "event_proposals",
+            applicantName: "Speaker / Proposal",
+            email: item.email || "",
+            roleOrTrack: "💡 Session Proposal",
+            organization: "Academic & Venture Board",
+            details: `Topic: ${item.topic}`,
+            submittedAt: item.proposedAt || new Date().toISOString(),
+            raw: item,
+          });
+        });
+
         setCounts({
           total: allItems.length,
           waitlist: d.waitlist.length,
@@ -235,6 +268,8 @@ function SubmissionsExplorerPage() {
           partners: d.partners.length,
           providers: d.providers.length,
           newsletter: d.newsletter.length,
+          eventRegistrations: (d.eventRegistrations || []).length,
+          eventProposals: (d.eventProposals || []).length,
         });
       }
 
@@ -458,6 +493,8 @@ function SubmissionsExplorerPage() {
               { id: "investor_applications", label: `💼 Investors (${counts.investors})` },
               { id: "partner_applications", label: `🏥 Partners (${counts.partners})` },
               { id: "provider_applications", label: `🛠️ Vendors (${counts.providers})` },
+              { id: "event_registrations", label: `🎪 Summits (${counts.eventRegistrations})` },
+              { id: "event_proposals", label: `💡 Proposals (${counts.eventProposals})` },
               { id: "newsletter_subscribers", label: `📧 Memos (${counts.newsletter})` },
             ].map((f) => (
               <button

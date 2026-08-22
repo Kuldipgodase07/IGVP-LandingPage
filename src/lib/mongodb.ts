@@ -274,3 +274,57 @@ export const ProviderApplicationModel =
     ProviderApplicationSchema,
     "provider_applications"
   );
+
+// 9. Summits & Live Webinars Registrations Collection ("event_registrations")
+export interface IEventRegistration {
+  fullName: string;
+  email: string;
+  role: string;
+  eventTitle: string;
+  eventType: string;
+  eventDate?: string;
+  eventLocation?: string;
+  ticketCode?: string;
+  registeredAt?: Date;
+}
+
+const EventRegistrationSchema = new mongoose.Schema<IEventRegistration>({
+  fullName: { type: String, required: true },
+  email: { type: String, required: true },
+  role: { type: String, required: true },
+  eventTitle: { type: String, required: true },
+  eventType: { type: String, required: true },
+  eventDate: String,
+  eventLocation: String,
+  ticketCode: String,
+  registeredAt: { type: Date, default: Date.now },
+});
+
+export const EventRegistrationModel =
+  mongoose.models.EventRegistration ||
+  mongoose.model<IEventRegistration>(
+    "EventRegistration",
+    EventRegistrationSchema,
+    "event_registrations"
+  );
+
+// 10. Event & Speaker Proposals Collection ("event_proposals")
+export interface IEventProposal {
+  email: string;
+  topic: string;
+  proposedAt?: Date;
+}
+
+const EventProposalSchema = new mongoose.Schema<IEventProposal>({
+  email: { type: String, required: true },
+  topic: { type: String, required: true },
+  proposedAt: { type: Date, default: Date.now },
+});
+
+export const EventProposalModel =
+  mongoose.models.EventProposal ||
+  mongoose.model<IEventProposal>(
+    "EventProposal",
+    EventProposalSchema,
+    "event_proposals"
+  );

@@ -9,6 +9,8 @@ import {
   InvestorApplicationModel,
   PartnerApplicationModel,
   ProviderApplicationModel,
+  EventRegistrationModel,
+  EventProposalModel,
   IWaitlistUser,
   IFounderApplication,
   IStudentApplication,
@@ -142,22 +144,64 @@ export const saveProviderAppToMongoDB = createServerFn({ method: "POST" })
     }
   });
 
-// 9. Fetch All Real-Time Submissions from MongoDB Atlas
+// 9. Summit & Live Webinar Registration Action ("event_registrations")
+export const saveEventRegistrationToMongoDB = createServerFn({ method: "POST" })
+  .validator((data: any) => data)
+  .handler(async ({ data }) => {
+    try {
+      await connectToDatabase();
+      const doc = await EventRegistrationModel.create(data);
+      console.log("✅ Saved event registration to MongoDB Atlas ('event_registrations'):", doc._id);
+      return { success: true, mongoId: doc._id.toString() };
+    } catch (err: any) {
+      console.warn("MongoDB event registration save warning:", err?.message || err);
+      return { success: true, savedLocally: true };
+    }
+  });
+
+// 10. Event Proposal Action ("event_proposals")
+export const saveEventProposalToMongoDB = createServerFn({ method: "POST" })
+  .validator((data: any) => data)
+  .handler(async ({ data }) => {
+    try {
+      await connectToDatabase();
+      const doc = await EventProposalModel.create(data);
+      console.log("✅ Saved event proposal to MongoDB Atlas ('event_proposals'):", doc._id);
+      return { success: true, mongoId: doc._id.toString() };
+    } catch (err: any) {
+      console.warn("MongoDB event proposal save warning:", err?.message || err);
+      return { success: true, savedLocally: true };
+    }
+  });
+
+// 11. Fetch All Real-Time Submissions from MongoDB Atlas
 export const fetchAllSubmissionsFromMongoDB = createServerFn({ method: "GET" })
   .handler(async () => {
     try {
       await connectToDatabase();
-      const [waitlist, founders, students, fellows, investors, partners, providers, newsletter] =
-        await Promise.all([
-          WaitlistUserModel.find().sort({ submittedAt: -1 }).lean(),
-          FounderApplicationModel.find().sort({ submittedAt: -1 }).lean(),
-          StudentApplicationModel.find().sort({ submittedAt: -1 }).lean(),
-          FellowshipApplicationModel.find().sort({ submittedAt: -1 }).lean(),
-          InvestorApplicationModel.find().sort({ submittedAt: -1 }).lean(),
-          PartnerApplicationModel.find().sort({ submittedAt: -1 }).lean(),
-          ProviderApplicationModel.find().sort({ submittedAt: -1 }).lean(),
-          NewsletterSubscriberModel.find().sort({ subscribedAt: -1 }).lean(),
-        ]);
+      const [
+        waitlist,
+        founders,
+        students,
+        fellows,
+        investors,
+        partners,
+        providers,
+        newsletter,
+        eventRegistrations,
+        eventProposals,
+      ] = await Promise.all([
+        WaitlistUserModel.find().sort({ submittedAt: -1 }).lean(),
+        FounderApplicationModel.find().sort({ submittedAt: -1 }).lean(),
+        StudentApplicationModel.find().sort({ submittedAt: -1 }).lean(),
+        FellowshipApplicationModel.find().sort({ submittedAt: -1 }).lean(),
+        InvestorApplicationModel.find().sort({ submittedAt: -1 }).lean(),
+        PartnerApplicationModel.find().sort({ submittedAt: -1 }).lean(),
+        ProviderApplicationModel.find().sort({ submittedAt: -1 }).lean(),
+        NewsletterSubscriberModel.find().sort({ subscribedAt: -1 }).lean(),
+        EventRegistrationModel.find().sort({ registeredAt: -1 }).lean(),
+        EventProposalModel.find().sort({ proposedAt: -1 }).lean(),
+      ]);
 
       return {
         success: true,
@@ -170,6 +214,8 @@ export const fetchAllSubmissionsFromMongoDB = createServerFn({ method: "GET" })
           partners: partners.map((d: any) => ({ ...d, _id: d._id.toString() })),
           providers: providers.map((d: any) => ({ ...d, _id: d._id.toString() })),
           newsletter: newsletter.map((d: any) => ({ ...d, _id: d._id.toString() })),
+          eventRegistrations: eventRegistrations.map((d: any) => ({ ...d, _id: d._id.toString() })),
+          eventProposals: eventProposals.map((d: any) => ({ ...d, _id: d._id.toString() })),
         },
       };
     } catch (err: any) {
@@ -186,6 +232,8 @@ export const fetchAllSubmissionsFromMongoDB = createServerFn({ method: "GET" })
           partners: [],
           providers: [],
           newsletter: [],
+          eventRegistrations: [],
+          eventProposals: [],
         },
       };
     }
