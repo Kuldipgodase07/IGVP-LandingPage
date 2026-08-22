@@ -2,6 +2,7 @@ import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { PersonaHeader } from "@/components/persona-header";
 import { PersonaFooter } from "@/components/persona-footer";
+import { PersonaModal } from "@/components/persona-modal";
 import { DiscordPreviewSection, DiscordIcon, WhatsAppIcon } from "@/components/discord-preview-section";
 import { PainVsFixSection } from "@/components/pain-vs-fix-section";
 import { Button } from "@/components/ui/button";
@@ -34,10 +35,12 @@ export const Route = createFileRoute("/students")({
 
 function StudentsPersonaPage() {
   const [activeSprintFilter, setActiveSprintFilter] = useState<"all" | "clinician" | "ai">("all");
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary selection:text-white">
       <PersonaHeader currentTrack="Students" />
+      <PersonaModal open={modalOpen} onOpenChange={setModalOpen} track="student" />
 
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-36 pb-24 md:pt-44 md:pb-32">
@@ -71,6 +74,7 @@ function StudentsPersonaPage() {
               <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 pt-2">
                 <Button
                   size="lg"
+                  onClick={() => setModalOpen(true)}
                   className="w-full sm:w-auto min-h-12 sm:h-14 px-5 sm:px-6 rounded-xl bg-primary hover:bg-primary-hover text-white text-sm sm:text-base font-bold shadow-lg shadow-primary/25 hover:-translate-y-0.5 transition-all"
                 >
                   Register for 72-Hour Venture Sprint

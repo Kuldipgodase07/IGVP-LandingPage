@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { WaitlistModal } from "@/components/waitlist-modal";
 import {
   ArrowRight,
   Activity,
@@ -43,6 +45,8 @@ function SsoButton({ label, svg }: { label: string; svg: React.ReactNode }) {
 }
 
 function LoginPage() {
+  const [waitlistOpen, setWaitlistOpen] = useState(false);
+
   return (
     <div className="h-screen grid lg:grid-cols-[1fr_1fr] bg-background w-full overflow-hidden">
 
@@ -81,97 +85,55 @@ function LoginPage() {
             </div>
           </div>
 
-          {/* Middle: headline + features + stats */}
-          <div className="flex-1 flex flex-col justify-center gap-6">
-
-            {/* Headline */}
-            <div className="space-y-2.5">
-              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-primary/80">
-                IGVP Healthcare Venture OS
-              </p>
-              <h1 className="text-[28px] xl:text-[34px] font-extrabold tracking-tight leading-[1.15]
-                text-foreground dark:text-white">
-                Sign in to your<br />
-                <span className="text-primary">Healthcare Venture</span> workspace.
-              </h1>
-              <p className="text-[13px] leading-relaxed max-w-sm
-                text-foreground/60 dark:text-white/60">
-                Unified console for clinical trial governance, portfolio diligence, IRB protocols, and AI copilots.
-              </p>
+          {/* Main graphic block */}
+          <div className="flex-1 flex flex-col justify-center my-auto space-y-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 dark:bg-white/10 border border-white/30 text-xs font-bold text-slate-800 dark:text-white w-fit">
+              <Sparkles className="h-3.5 w-3.5 text-amber-500" />
+              Ingenious Global Venture Partners OS
             </div>
 
-            {/* Feature list */}
-            <div className="grid gap-3">
-              {[
-                { i: ShieldCheck, t: "Zero-Trust Architecture", d: "Least-privilege RBAC & role-scoped data isolation" },
-                { i: Fingerprint, t: "FIDO2 & Hardware Passkeys", d: "YubiKey & WebAuthn passwordless authentication" },
-                { i: Lock, t: "HIPAA & PHI Compliance", d: "End-to-end BAA coverage with encrypted audit trails" },
-              ].map((f) => (
-                <div
-                  key={f.t}
-                  className="flex items-center gap-4 rounded-2xl px-5 py-4 transition-all
-                    border border-white/80 dark:border-white/10
-                    bg-white dark:bg-white/8
-                    shadow-md shadow-black/5
-                    hover:shadow-lg hover:shadow-black/10 hover:-translate-y-[1px]"
-                >
-                  <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary border border-primary/20">
-                    <f.i className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <p className="text-[13px] font-bold text-gray-900 dark:text-white">{f.t}</p>
-                    <p className="text-[11.5px] text-gray-500 dark:text-white/50 mt-0.5">{f.d}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <h1 className="text-3xl xl:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
+              One Operating System for <span className="text-primary dark:text-[#38bdf8]">Healthcare Venture</span> Creation.
+            </h1>
 
-            {/* Stats bar */}
-            <div className="grid grid-cols-3 gap-3">
-              {[
-                { v: "99.99%", l: "Uptime SLA" },
-                { v: "2,400+", l: "Clinicians" },
-                { v: "HIPAA BAA", l: "Active" },
-              ].map((s) => (
-                <div
-                  key={s.l}
-                  className="flex flex-col items-center justify-center rounded-2xl py-4 gap-1
-                    border border-white/80 dark:border-white/10
-                    bg-white dark:bg-white/8
-                    shadow-md shadow-black/5"
-                >
-                  <span className="text-[14px] font-extrabold text-gray-900 dark:text-white">{s.v}</span>
-                  <span className="text-[10.5px] font-medium text-primary dark:text-white/50">{s.l}</span>
-                </div>
-              ))}
+            <p className="text-sm xl:text-base text-slate-700 dark:text-slate-300 leading-relaxed max-w-lg">
+              Unifying STEM student sprints, clinical validation pipelines, founder incubation, and LP syndication in a unified zero-trust console.
+            </p>
+
+            <div className="grid grid-cols-2 gap-3 pt-2">
+              <div className="p-3.5 rounded-xl bg-white/60 dark:bg-white/5 border border-slate-200 dark:border-white/10 backdrop-blur-md">
+                <ShieldCheck className="h-5 w-5 text-emerald-600 dark:text-emerald-400 mb-1" />
+                <p className="text-xs font-bold text-slate-900 dark:text-white">HIPAA & SOC 2</p>
+                <p className="text-[11px] text-slate-600 dark:text-slate-400">Enterprise data encryption</p>
+              </div>
+              <div className="p-3.5 rounded-xl bg-white/60 dark:bg-white/5 border border-slate-200 dark:border-white/10 backdrop-blur-md">
+                <Zap className="h-5 w-5 text-amber-500 mb-1" />
+                <p className="text-xs font-bold text-slate-900 dark:text-white">Agentforce AI</p>
+                <p className="text-[11px] text-slate-600 dark:text-slate-400">Automated 510(k) copilot</p>
+              </div>
             </div>
           </div>
 
-          {/* Footer */}
-          <div className="shrink-0 flex items-center justify-between pt-5 font-medium text-[11px]
-            border-t border-primary/20 dark:border-white/10
-            text-foreground/45 dark:text-white/40">
-            <span>© 2026 IGVP · Healthcare OS</span>
-            <div className="flex gap-4">
-              <a href="/" className="hover:text-foreground dark:hover:text-white/70 transition-colors">Trust Center</a>
-              <a href="/" className="hover:text-foreground dark:hover:text-white/70 transition-colors">Status</a>
-              <a href="/" className="hover:text-foreground dark:hover:text-white/70 transition-colors">Privacy</a>
-            </div>
+          <div className="shrink-0 text-xs text-slate-600 dark:text-slate-400 flex items-center justify-between">
+            <span>© 2026 IGVP, Inc.</span>
+            <span className="font-mono">US & Asia Cross-Border OS</span>
           </div>
         </div>
       </div>
 
-      {/* ── RIGHT PANEL ───────────────────────────────────────── */}
-      <div className="flex flex-col h-screen overflow-hidden bg-background">
+      {/* ── RIGHT RAIL: AUTH FORM ──────────────────────────────── */}
+      <div className="flex flex-col h-screen overflow-y-auto bg-background">
 
-        {/* Top bar */}
+        {/* Top header */}
         <div className="flex items-center justify-between shrink-0 px-8 xl:px-12 pt-6 pb-3">
           <div className="lg:hidden">
             <BrandLogo size="md" />
           </div>
           <div className="ml-auto flex items-center gap-3 text-[12px] text-muted-foreground font-medium">
             <span>New to IGVP?</span>
-            <Link to="/" className="font-semibold text-primary hover:underline">Request access</Link>
+            <button onClick={() => setWaitlistOpen(true)} className="font-semibold text-primary hover:underline cursor-pointer">
+              Join Waitlist
+            </button>
             <Separator orientation="vertical" className="h-4 mx-1" />
             <ThemeToggle />
           </div>
@@ -221,7 +183,7 @@ function LoginPage() {
                     <Input
                       id="email"
                       type="email"
-                      placeholder="you@institute.health"
+                      placeholder="you@institution.health"
                       className="h-10 pl-10 text-[13px] bg-background border-border focus:border-primary rounded-xl"
                       defaultValue="aditi.raj@igvp.health"
                     />
@@ -289,11 +251,10 @@ function LoginPage() {
           IGVP Healthcare Venture Operating System · SOC 2 Type II Certified
         </div>
       </div>
+      <WaitlistModal open={waitlistOpen} onOpenChange={setWaitlistOpen} />
     </div>
   );
 }
-
-
 
 function GoogleIcon() {
   return (

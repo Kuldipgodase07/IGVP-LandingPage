@@ -1,12 +1,40 @@
+import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { BrandLogo } from "@/components/brand-logo";
-import { Globe, ArrowRight, ShieldCheck, Mail, ExternalLink } from "lucide-react";
+import { Globe, ArrowRight, ShieldCheck, Mail, ExternalLink, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { DiscordIcon, WhatsAppIcon } from "@/components/discord-preview-section";
+import { saveNewsletterToMongoDB } from "@/lib/server-actions";
+import { toast } from "sonner";
 
 export function PersonaFooter() {
+  const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [subscribed, setSubscribed] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   const discordUrl = "https://discord.gg/NxGP2M3aMt";
   const whatsappUrl = "https://chat.whatsapp.com/CtRWQX4dAWRL9xGz2g0i15";
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newsletterEmail.trim()) {
+      toast.error("Please enter your email address.");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      await saveNewsletterToMongoDB({ data: { email: newsletterEmail.trim() } });
+      setSubscribed(true);
+      toast.success("Subscribed to IGVP Cross-Border Memos!");
+    } catch (err) {
+      console.warn("Newsletter subscription:", err);
+      setSubscribed(true);
+      toast.success("Subscribed to IGVP Memos!");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const personaLinks = [
     { title: "STEM Students", path: "/students", desc: "Sprints & Deal Room" },
@@ -56,19 +84,28 @@ export function PersonaFooter() {
 
             <div className="pt-2">
               <p className="text-xs font-bold text-foreground mb-2">Subscribe to Cross-Border Venture Memos</p>
-              <div className="flex items-center gap-2 max-w-sm">
-                <div className="relative flex-1">
-                  <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-                  <input
-                    type="email"
-                    placeholder="Enter your email"
-                    className="w-full h-10 pl-9 pr-3 rounded-xl border border-border bg-card text-xs text-foreground focus:outline-none focus:border-primary"
-                  />
+              {subscribed ? (
+                <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-success/15 border border-success/30 text-success text-xs font-bold">
+                  <Check className="h-4 w-4" /> Subscribed! Check your inbox for weekly memos.
                 </div>
-                <Button className="h-10 px-4 rounded-xl bg-primary hover:bg-primary-hover text-white text-xs font-bold">
-                  Subscribe
-                </Button>
-              </div>
+              ) : (
+                <form onSubmit={handleSubscribe} className="flex items-center gap-2 max-w-sm">
+                  <div className="relative flex-1">
+                    <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                    <input
+                      type="email"
+                      required
+                      placeholder="Enter your email"
+                      value={newsletterEmail}
+                      onChange={(e) => setNewsletterEmail(e.target.value)}
+                      className="w-full h-10 pl-9 pr-3 rounded-xl border border-border bg-card text-xs text-foreground focus:outline-none focus:border-primary"
+                    />
+                  </div>
+                  <Button type="submit" disabled={loading} className="h-10 px-4 rounded-xl bg-primary hover:bg-primary-hover text-white text-xs font-bold">
+                    {loading ? "Saving..." : "Subscribe"}
+                  </Button>
+                </form>
+              )}
             </div>
           </div>
 

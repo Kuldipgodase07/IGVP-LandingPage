@@ -2,6 +2,7 @@ import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { PersonaHeader } from "@/components/persona-header";
 import { PersonaFooter } from "@/components/persona-footer";
+import { PersonaModal } from "@/components/persona-modal";
 import { DiscordPreviewSection } from "@/components/discord-preview-section";
 import { PainVsFixSection } from "@/components/pain-vs-fix-section";
 import { Button } from "@/components/ui/button";
@@ -35,6 +36,7 @@ export const Route = createFileRoute("/investors")({
 
 function InvestorsPersonaPage() {
   const [activeDealIndex, setActiveDealIndex] = useState(0);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const deals = [
     { name: "NeuroPulse Diagnostics", stage: "Seed ($1.5M)", val: "$6M Post", desc: "AI-based EEG diagnostic platform. Indian clinical trial completed (60% savings)." },
@@ -45,6 +47,7 @@ function InvestorsPersonaPage() {
   return (
     <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary selection:text-white">
       <PersonaHeader currentTrack="Investors" />
+      <PersonaModal open={modalOpen} onOpenChange={setModalOpen} track="investor" />
 
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-36 pb-24 md:pt-44 md:pb-32">
@@ -56,7 +59,7 @@ function InvestorsPersonaPage() {
             backgroundSize: "48px 48px",
           }}
         />
-        <div className="absolute top-0 right-1/3 h-[420px] w-[750px] rounded-full bg-primary/20 blur-[120px] pointer-events-none z-0" />
+        <div className="absolute top-0 left-1/3 h-[420px] w-[750px] rounded-full bg-primary/20 blur-[120px] pointer-events-none z-0" />
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -78,7 +81,8 @@ function InvestorsPersonaPage() {
               <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 pt-2">
                 <Button
                   size="lg"
-                  className="w-full sm:w-auto min-h-12 sm:h-14 px-5 sm:px-6 rounded-xl bg-primary hover:bg-primary-hover text-white text-sm sm:text-base font-bold shadow-lg shadow-primary/25 hover:-translate-y-0.5 transition-all"
+                  onClick={() => setModalOpen(true)}
+                  className="w-full sm:w-auto min-h-12 sm:h-14 px-5 sm:px-6 rounded-xl bg-primary hover:bg-primary-hover text-white text-sm sm:text-base font-bold shadow-lg shadow-primary/25 hover:-translate-y-0.5 transition-all cursor-pointer"
                 >
                   Request Accredited Data Room Access
                   <ArrowRight className="ml-2 h-5 w-5 shrink-0" />
@@ -86,7 +90,8 @@ function InvestorsPersonaPage() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="w-full sm:w-auto min-h-12 sm:h-14 px-5 sm:px-6 rounded-xl border-border bg-card hover:bg-accent text-sm sm:text-base font-bold transition-all"
+                  onClick={() => setModalOpen(true)}
+                  className="w-full sm:w-auto min-h-12 sm:h-14 px-5 sm:px-6 rounded-xl border-border bg-card hover:bg-accent text-sm sm:text-base font-bold transition-all cursor-pointer"
                 >
                   View Syndicate Term Sheet
                 </Button>

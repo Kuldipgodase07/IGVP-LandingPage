@@ -2,6 +2,7 @@ import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { PersonaHeader } from "@/components/persona-header";
 import { PersonaFooter } from "@/components/persona-footer";
+import { PersonaModal } from "@/components/persona-modal";
 import { DiscordPreviewSection } from "@/components/discord-preview-section";
 import { PainVsFixSection } from "@/components/pain-vs-fix-section";
 import { Button } from "@/components/ui/button";
@@ -33,10 +34,12 @@ export const Route = createFileRoute("/partners")({
 
 function PartnersPersonaPage() {
   const [activeRegion, setActiveRegion] = useState<"asia" | "us">("asia");
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary selection:text-white">
       <PersonaHeader currentTrack="Institutional Partners" />
+      <PersonaModal open={modalOpen} onOpenChange={setModalOpen} track="partner" />
 
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-36 pb-24 md:pt-44 md:pb-32">
@@ -48,19 +51,22 @@ function PartnersPersonaPage() {
             backgroundSize: "48px 48px",
           }}
         />
-        <div className="absolute top-0 left-1/3 h-[420px] w-[750px] rounded-full bg-primary/20 blur-[120px] pointer-events-none z-0" />
+
+        {/* Core Glow Effect */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 h-[400px] w-[700px] rounded-full bg-primary/15 dark:bg-primary/20 blur-[100px] pointer-events-none z-0" />
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Left Hero Text */}
-            <div className="lg:col-span-7 xl:col-span-6 space-y-6 text-left">
-              <Badge className="bg-primary/10 text-primary border-primary/20 text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider inline-flex items-center gap-2">
-                <Building2 className="h-4 w-4" /> Institutional Partners Track
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+            {/* Left Column: Copy */}
+            <div className="space-y-6">
+              <Badge variant="outline" className="px-3.5 py-1.5 rounded-full border-primary/30 bg-primary/10 text-primary text-xs font-bold gap-2">
+                <Sparkles className="h-3.5 w-3.5" />
+                Clinical Sites & Tech Transfer
               </Badge>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1]">
-                Fill Clinical Trial Capacity.{" "}
-                <span className="text-primary">Monetize Research IP.</span>
+                Monetize Trial Capacity.{" "}
+                <span className="text-primary">Commercialize Lab IP.</span>
               </h1>
 
               <p className="text-lg text-foreground/70 leading-relaxed max-w-xl">
@@ -70,7 +76,8 @@ function PartnersPersonaPage() {
               <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 pt-2">
                 <Button
                   size="lg"
-                  className="w-full sm:w-auto min-h-12 sm:h-14 px-5 sm:px-6 rounded-xl bg-primary hover:bg-primary-hover text-white text-sm sm:text-base font-bold shadow-lg shadow-primary/25 hover:-translate-y-0.5 transition-all"
+                  onClick={() => setModalOpen(true)}
+                  className="w-full sm:w-auto min-h-12 sm:h-14 px-5 sm:px-6 rounded-xl bg-primary hover:bg-primary-hover text-white text-sm sm:text-base font-bold shadow-lg shadow-primary/25 hover:-translate-y-0.5 transition-all cursor-pointer"
                 >
                   Register Institutional Site
                   <ArrowRight className="ml-2 h-5 w-5 shrink-0" />
@@ -78,7 +85,8 @@ function PartnersPersonaPage() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="w-full sm:w-auto min-h-12 sm:h-14 px-5 sm:px-6 rounded-xl border-border bg-card hover:bg-accent text-sm sm:text-base font-bold transition-all"
+                  onClick={() => setModalOpen(true)}
+                  className="w-full sm:w-auto min-h-12 sm:h-14 px-5 sm:px-6 rounded-xl border-border bg-card hover:bg-accent text-sm sm:text-base font-bold transition-all cursor-pointer"
                 >
                   View Tech Transfer Desk
                 </Button>

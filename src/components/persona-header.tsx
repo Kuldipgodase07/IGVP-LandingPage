@@ -98,6 +98,20 @@ export function PersonaHeader({ currentTrack }: PersonaHeaderProps) {
           <Button
             variant="outline"
             asChild
+            className="h-10 rounded-full border-primary/30 bg-primary/10 hover:bg-primary/20 text-xs font-bold gap-1.5 shadow-xs transition-all hover:scale-105 text-primary"
+          >
+            <Link to={"/submissions" as any}>
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75"></span>
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-success"></span>
+              </span>
+              <span>Live Submissions</span>
+            </Link>
+          </Button>
+
+          <Button
+            variant="outline"
+            asChild
             className="h-10 rounded-full border-border/80 bg-card hover:bg-accent text-xs font-bold gap-1.5 shadow-xs transition-all hover:scale-105"
           >
             <Link to="/">

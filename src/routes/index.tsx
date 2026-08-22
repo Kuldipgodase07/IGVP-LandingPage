@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { CopilotWidget } from "@/components/copilot-widget";
 import { EventsSection } from "@/components/events-section";
+import { WaitlistModal } from "@/components/waitlist-modal";
 import {
   ArrowRight,
   ShieldCheck,
@@ -55,6 +57,8 @@ export const Route = createFileRoute("/")({
 });
 
 function Landing() {
+  const [waitlistOpen, setWaitlistOpen] = useState(false);
+  const [waitlistDefaultRole, setWaitlistDefaultRole] = useState<string | undefined>();
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">
       {/* Floating Pill Header */}
@@ -96,13 +100,29 @@ function Landing() {
             </nav>
           </div>
           <div className="flex items-center gap-2 sm:gap-3">
+            <Button
+              variant="outline"
+              asChild
+              className="h-10 px-4 rounded-full border-primary/30 bg-primary/10 hover:bg-primary/20 text-xs font-bold gap-1.5 shadow-xs transition-all text-primary hidden sm:inline-flex"
+            >
+              <Link to={"/submissions" as any}>
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75"></span>
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-success"></span>
+                </span>
+                <span>Live Submissions</span>
+              </Link>
+            </Button>
             <ThemeToggle />
             <div className="h-5 w-px bg-border hidden sm:block mx-1" />
             <Button
-              asChild
-              className="h-10 px-6 rounded-full bg-primary hover:bg-primary-hover text-[14px] font-bold shadow-md transition-all hover:shadow-lg hover:-translate-y-0.5"
+              onClick={() => {
+                setWaitlistDefaultRole(undefined);
+                setWaitlistOpen(true);
+              }}
+              className="h-10 px-6 rounded-full bg-primary hover:bg-primary-hover text-[14px] font-bold shadow-md transition-all hover:shadow-lg hover:-translate-y-0.5 cursor-pointer"
             >
-              <Link to="/login">Try for free</Link>
+              Join Waitlist
             </Button>
           </div>
         </header>
@@ -152,10 +172,13 @@ function Landing() {
                 <Button
                   size="lg"
                   variant="outline"
-                  asChild
-                  className="w-full sm:w-auto h-14 px-8 rounded-md border-2 border-primary text-primary hover:bg-primary/5 text-base font-bold transition-all hover:-translate-y-0.5"
+                  onClick={() => {
+                    setWaitlistDefaultRole(undefined);
+                    setWaitlistOpen(true);
+                  }}
+                  className="w-full sm:w-auto h-14 px-8 rounded-md border-2 border-primary text-primary hover:bg-primary/5 text-base font-bold transition-all hover:-translate-y-0.5 cursor-pointer"
                 >
-                  <Link to="/login">Try for free</Link>
+                  Join Waitlist
                 </Button>
               </div>
             </div>
@@ -514,11 +537,14 @@ function Landing() {
             {/* CTA under video */}
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4 text-center">
               <Button
-                asChild
                 size="lg"
-                className="h-13 px-8 rounded-xl bg-primary hover:bg-primary-hover text-white font-bold text-base shadow-xl shadow-primary/25 hover:-translate-y-0.5 transition-all"
+                onClick={() => {
+                  setWaitlistDefaultRole(undefined);
+                  setWaitlistOpen(true);
+                }}
+                className="h-13 px-8 rounded-xl bg-primary hover:bg-primary-hover text-white font-bold text-base shadow-xl shadow-primary/25 hover:-translate-y-0.5 transition-all cursor-pointer"
               >
-                <Link to="/login">Schedule Enterprise Demo</Link>
+                Join Waitlist & Reserve Slot
               </Button>
               <Button
                 asChild
@@ -1427,6 +1453,11 @@ function Landing() {
         </div>
       </footer>
       <CopilotWidget />
+      <WaitlistModal
+        open={waitlistOpen}
+        onOpenChange={setWaitlistOpen}
+        defaultRole={waitlistDefaultRole}
+      />
     </div>
   );
 }

@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as UpskillingRouteImport } from './routes/upskilling'
+import { Route as SubmissionsRouteImport } from './routes/submissions'
 import { Route as StudentsRouteImport } from './routes/students'
 import { Route as ServiceProvidersRouteImport } from './routes/service-providers'
 import { Route as RisingInvestorsRouteImport } from './routes/rising-investors'
@@ -24,6 +25,11 @@ import { Route as BooksTheVentureFrameworkForStemRouteImport } from './routes/bo
 const UpskillingRoute = UpskillingRouteImport.update({
   id: '/upskilling',
   path: '/upskilling',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SubmissionsRoute = SubmissionsRouteImport.update({
+  id: '/submissions',
+  path: '/submissions',
   getParentRoute: () => rootRouteImport,
 } as any)
 const StudentsRoute = StudentsRouteImport.update({
@@ -87,6 +93,7 @@ export interface FileRoutesByFullPath {
   '/rising-investors': typeof RisingInvestorsRoute
   '/service-providers': typeof ServiceProvidersRoute
   '/students': typeof StudentsRoute
+  '/submissions': typeof SubmissionsRoute
   '/upskilling': typeof UpskillingRoute
   '/books/the-venture-framework-for-stem': typeof BooksTheVentureFrameworkForStemRoute
   '/books/': typeof BooksIndexRoute
@@ -100,6 +107,7 @@ export interface FileRoutesByTo {
   '/rising-investors': typeof RisingInvestorsRoute
   '/service-providers': typeof ServiceProvidersRoute
   '/students': typeof StudentsRoute
+  '/submissions': typeof SubmissionsRoute
   '/upskilling': typeof UpskillingRoute
   '/books/the-venture-framework-for-stem': typeof BooksTheVentureFrameworkForStemRoute
   '/books': typeof BooksIndexRoute
@@ -114,6 +122,7 @@ export interface FileRoutesById {
   '/rising-investors': typeof RisingInvestorsRoute
   '/service-providers': typeof ServiceProvidersRoute
   '/students': typeof StudentsRoute
+  '/submissions': typeof SubmissionsRoute
   '/upskilling': typeof UpskillingRoute
   '/books/the-venture-framework-for-stem': typeof BooksTheVentureFrameworkForStemRoute
   '/books/': typeof BooksIndexRoute
@@ -129,6 +138,7 @@ export interface FileRouteTypes {
     | '/rising-investors'
     | '/service-providers'
     | '/students'
+    | '/submissions'
     | '/upskilling'
     | '/books/the-venture-framework-for-stem'
     | '/books/'
@@ -142,6 +152,7 @@ export interface FileRouteTypes {
     | '/rising-investors'
     | '/service-providers'
     | '/students'
+    | '/submissions'
     | '/upskilling'
     | '/books/the-venture-framework-for-stem'
     | '/books'
@@ -155,6 +166,7 @@ export interface FileRouteTypes {
     | '/rising-investors'
     | '/service-providers'
     | '/students'
+    | '/submissions'
     | '/upskilling'
     | '/books/the-venture-framework-for-stem'
     | '/books/'
@@ -169,6 +181,7 @@ export interface RootRouteChildren {
   RisingInvestorsRoute: typeof RisingInvestorsRoute
   ServiceProvidersRoute: typeof ServiceProvidersRoute
   StudentsRoute: typeof StudentsRoute
+  SubmissionsRoute: typeof SubmissionsRoute
   UpskillingRoute: typeof UpskillingRoute
   BooksTheVentureFrameworkForStemRoute: typeof BooksTheVentureFrameworkForStemRoute
   BooksIndexRoute: typeof BooksIndexRoute
@@ -181,6 +194,13 @@ declare module '@tanstack/react-router' {
       path: '/upskilling'
       fullPath: '/upskilling'
       preLoaderRoute: typeof UpskillingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/submissions': {
+      id: '/submissions'
+      path: '/submissions'
+      fullPath: '/submissions'
+      preLoaderRoute: typeof SubmissionsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/students': {
@@ -265,6 +285,7 @@ const rootRouteChildren: RootRouteChildren = {
   RisingInvestorsRoute: RisingInvestorsRoute,
   ServiceProvidersRoute: ServiceProvidersRoute,
   StudentsRoute: StudentsRoute,
+  SubmissionsRoute: SubmissionsRoute,
   UpskillingRoute: UpskillingRoute,
   BooksTheVentureFrameworkForStemRoute: BooksTheVentureFrameworkForStemRoute,
   BooksIndexRoute: BooksIndexRoute,
